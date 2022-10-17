@@ -1,0 +1,90 @@
+{
+  "expo": {
+    "name": "A la vuelta",
+    "slug": "a-la-vuelta-hay",
+    "owner": "andresfelipexonmek",
+    "version": "1.0.26",
+    "description": "a-la-vuelta-hay",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "buildNumber": "1.0.26",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Esta app usa la camara para colocar imagenes de perfil",
+        "NSLocationAlwaysUsageDescription": "Gracias a tu ubicación podremos mostrarte los negocios y productos que se encuentran cerca de ti, además podrás actualizar tu ubicación cuando estés en un nuevo lugar",
+        "NSLocationWhenInUseUsageDescription": "Gracias a tu ubicación podremos mostrarte los negocios y productos que se encuentran cerca de ti, además podrás actualizar tu ubicación cuando estés en un nuevo lugar",
+        "NSPhotoLibraryAddUsageDescription": "Esta app usa la libreria de imagenes para seleccionar y colocar imagenes de perfil",
+        "NSPhotoLibraryUsageDescription": "Esta app usa la libreria de imagenes para seleccionar y colocar imagenes de perfil",
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ],
+        "LSApplicationQueriesSchemes": [
+          "tel",
+          "telprompt",
+          "mailto"
+        ],
+        "UIRequiresFullScreen": true
+      },
+      "bundleIdentifier": "com.tresidea.alavueltahay",
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "config": {
+        "googleMapsApiKey": "AIzaSyAn42XDvsegaLaO2WMODI5ABJc_l3ianTk"
+      }
+    },
+    "android": {
+      "versionCode": 100025,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": [
+        "READ_PHONE_STATE",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "CAMERA_ROLL",
+        "MANAGE_DOCUMENTS",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.tresidea.alavueltahay",
+      "googleServicesFile": "./google-services.json",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAn42XDvsegaLaO2WMODI5ABJc_l3ianTk"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Esta app usa la camara y galería para seleccionar imagenes de perfil."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "40783a84-ff06-43d1-8aff-1b487b0a191c"
+      }
+    }
+  }
+}

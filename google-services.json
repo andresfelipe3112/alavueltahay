@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "181512922368",
+    "project_id": "alavueltahay",
+    "storage_bucket": "alavueltahay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181512922368:android:7cd0d84b2987916de1ffe5",
+        "android_client_info": {
+          "package_name": "com.tresidea.alavueltahay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181512922368-ai2pep37i8ci9dvi5r79cvt242vq8f9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKepv97kP8q_L8EBAYQNvb8pU8zGr5PDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "181512922368-ai2pep37i8ci9dvi5r79cvt242vq8f9i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "181512922368-80ff8ebsukk4a2caejp5c39s2euiiird.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tresidea.alavueltahay"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
