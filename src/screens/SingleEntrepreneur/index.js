@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   StyleSheet,
   Image,
+  Dimensions,
 } from "react-native";
 
 import { useFocusEffect } from "@react-navigation/native";
@@ -309,7 +310,7 @@ const SingleEntrepreneursScreen = ({ navigation, route }) => {
           <View
             style={[
               styles.collection,
-              { paddingHorizontal: 20, marginBottom: 20 },
+              { paddingHorizontal: 20, marginBottom: 20, marginTop:Dimensions.get('window').width > 500 ? 30 :0 },
             ]}
           >
             <LabelTextComponent

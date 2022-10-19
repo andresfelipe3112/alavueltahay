@@ -279,7 +279,7 @@ const InitialScreen = ({ navigation }) => {
   };
 
   let objInvi ={
-    correo: "usuario-invitado@kidiapp.cl",
+    correo: "usuario-invitado@alavueltahay.cl",
     clave: "01234567"
   }
 

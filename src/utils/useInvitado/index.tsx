@@ -8,7 +8,7 @@ const userInvitadData = () => {
 
   let fun = async () => {
     let a = await Storage.getItem("_USER_LOGGED");
-    if (user.email === "usuario-invitado@kidiapp.cl" && user.id === 53) {
+    if (user.email === "usuario-invitado@alavueltahay.cl" && user.id === 53) {
       setData(false);
     } else {
       setData(true);

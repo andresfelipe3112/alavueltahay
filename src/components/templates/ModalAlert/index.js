@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, View, TouchableOpacity, Alert } from "react-native";
+import { Modal, View, TouchableOpacity, Alert, StyleSheet, Image } from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
 
@@ -16,12 +16,23 @@ const ModalAlert = ({ text = "", ...props }) => {
     <Modal animationType="slide" transparent={true} visible={openModal}>
       <View style={styles.view}>
         <View style={styles.container}>
-          <View style={[styles.centerContent,{marginTop:-10}]}>
+          <TouchableOpacity
+            style={{ position: "absolute", top: 15, right: 15 }}
+            onPress={() => onHelp()}
+          ><View style={styles2.container}>
+          <Image
+            style={styles2.stretch}
+            source={require("../../../../assets/close-orange.png")}
+          />
+        </View>
+
+          </TouchableOpacity>
+          <View style={styles.centerContent}>
             <TitleComponent
               title={text}
               color={GlobalVars.orange}
               size={23}
-              customStyles={{ textAlign: "center" }}
+              customStyles={{ textAlign: "center", top:-15 }}
             />
           </View>
         </View>
@@ -31,3 +42,24 @@ const ModalAlert = ({ text = "", ...props }) => {
 };
 
 export default ModalAlert;
+
+const styles2 = StyleSheet.create({
+  container: {
+    width: 35,
+    height: 35,
+  },
+  stretch: {
+    width: 35,
+    height: 35,
+    resizeMode: "stretch",
+  },
+  containerFocus: {
+    width: 42,
+    height: 42,
+  },
+  stretchFocus: {
+    width: 42,
+    height: 42,
+  },
+});
+

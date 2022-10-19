@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 
 import GlobalVars from "../../../global/globalVars";
 
@@ -74,9 +74,9 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     justifyContent: "center",
-    width: GlobalVars.windowWidth - 80,
+    width:Dimensions.get('window').width > 500 ? GlobalVars.windowWidth * 0.8 : GlobalVars.windowWidth - 80,
     backgroundColor: GlobalVars.orange,
-    marginTop: 50,
+    marginTop: Dimensions.get('window').width > 500 ? 300 : 50,
   },
 
   shadowSet: {
