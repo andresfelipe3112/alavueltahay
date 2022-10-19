@@ -3,7 +3,7 @@
     "name": "A la vuelta",
     "slug": "a-la-vuelta-hay",
     "owner": "andresfelipexonmek",
-    "version": "1.0.26",
+    "version": "1.0.27",
     "description": "a-la-vuelta-hay",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,7 +20,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "1.0.26",
+      "buildNumber": "1.0.27",
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "Esta app usa la camara para colocar imagenes de perfil",
