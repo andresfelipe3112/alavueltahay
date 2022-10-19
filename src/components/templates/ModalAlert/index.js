@@ -16,17 +16,7 @@ const ModalAlert = ({ text = "", ...props }) => {
     <Modal animationType="slide" transparent={true} visible={openModal}>
       <View style={styles.view}>
         <View style={styles.container}>
-          <TouchableOpacity
-            style={{ position: "absolute", top: 15, right: 15 }}
-            onPress={() => onHelp()}
-          >
-            <AntDesign
-              name="closecircleo"
-              size={24}
-              color={GlobalVars.orange}
-            />
-          </TouchableOpacity>
-          <View style={styles.centerContent}>
+          <View style={[styles.centerContent,{marginTop:-10}]}>
             <TitleComponent
               title={text}
               color={GlobalVars.orange}

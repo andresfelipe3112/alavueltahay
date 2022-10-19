@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   BackHandler,
   ImageBackground,
+  Image,
+  StyleSheet,
 } from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -127,11 +129,12 @@ const EntrepreneurProductsScreen = ({ navigation }) => {
             color={GlobalVars.whiteLight}
             size={15}
           />
-          <AntDesign
-            name="rightcircle"
-            size={20}
-            color={GlobalVars.whiteLight}
-          />
+          <View style={styles2.container}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../assets/chevron_right_white.png")}
+                />
+              </View>
         </TouchableOpacity>
       );
     })) || <></>;
@@ -208,7 +211,12 @@ const EntrepreneurProductsScreen = ({ navigation }) => {
         style={styles.floatBtn}
         onPress={() => showCreateProduct()}
       >
-        <AntDesign name="plus" size={24} color={GlobalVars.white} />
+         <View style={[styles2.container]}>
+            <Image
+              style={styles2.stretch}
+              source={require("../../../assets/plus_white.png")}
+            />
+          </View>
       </TouchableOpacity>
 
       <ModalAlert
@@ -243,3 +251,23 @@ const EntrepreneurProductsScreen = ({ navigation }) => {
 };
 
 export default EntrepreneurProductsScreen;
+
+const styles2 = StyleSheet.create({
+  container: {
+    width: 40,
+    height: 40,
+  },
+  stretch: {
+    width: 40,
+    height: 40,
+    resizeMode: "stretch",
+  },
+  containerFocus: {
+    width: 42,
+    height: 42,
+  },
+  stretchFocus: {
+    width: 42,
+    height: 42,
+  },
+});

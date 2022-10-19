@@ -96,7 +96,7 @@ const MainEntrepreneurScreen = ({ navigation }) => {
               sizeText={16}
               colorIcon={GlobalVars.white}
               sizeIcon={20}
-              iconOption="clipboard"
+              iconOptionN="Editar"
               onPress={() => navigation.navigate("EditEntrepreneur")}
             />
 
@@ -106,7 +106,7 @@ const MainEntrepreneurScreen = ({ navigation }) => {
               sizeText={16}
               colorIcon={GlobalVars.white}
               sizeIcon={20}
-              iconOption="coffee"
+              iconOptionN="coffee"
               onPress={() => navigation.navigate("ShopItems")}
             />
 
@@ -116,7 +116,7 @@ const MainEntrepreneurScreen = ({ navigation }) => {
               sizeText={16}
               colorIcon={GlobalVars.white}
               sizeIcon={20}
-              iconOption="clipboard"
+              iconOptionN="clipboard"
               onPress={() => navigation.navigate("Shop")}
             />
           </View>

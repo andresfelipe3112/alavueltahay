@@ -255,7 +255,7 @@ const EditProfileScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="award"
+                  iconOptionN="intereses"
                   onPress={() => showSelectCategories()}
                   aditionalStyle={styles.optionTouch}
                 />
@@ -266,7 +266,7 @@ const EditProfileScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="key"
+                  iconOptionN="contraseña"
                   onPress={() => showChangePass()}
                   aditionalStyle={styles.optionTouch}
                 />
@@ -277,7 +277,7 @@ const EditProfileScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="aperture"
+                  iconOptionN="aperture"
                   onPress={() => showChangePhoto()}
                   aditionalStyle={styles.optionTouch}
                 />
@@ -288,7 +288,7 @@ const EditProfileScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="github"
+                  iconOptionN="github"
                   onPress={() => showSelectAvatar()}
                   aditionalStyle={styles.optionTouch}
                 />

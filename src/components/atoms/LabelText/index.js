@@ -6,7 +6,7 @@ import GlobalVars from "../../../global/globalVars";
 import Styles from "./style";
 
 const styles = Styles;
-const LabelTextComponent = ({ text, color, size, noFontFamily, ...props }) => {
+const LabelTextComponent = ({ text, color, size, noFontFamily,style, ...props }) => {
   if (!text || !color || !size) {
     return <></>;
   }
@@ -15,6 +15,7 @@ const LabelTextComponent = ({ text, color, size, noFontFamily, ...props }) => {
     <Text
       style={[
         styles.statusStyle,
+        style,
         {
           color: color,
           fontSize:

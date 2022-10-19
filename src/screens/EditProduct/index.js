@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   ImageBackground,
+  StyleSheet,
+  Image,
 } from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -387,7 +389,14 @@ const EditProductScreen = ({ navigation, route }) => {
               style={styles.optionDelet}
               onPress={() => showDrop()}
             >
-              <AntDesign name="delete" size={24} color={GlobalVars.white} />
+               <View
+                style={[styles2.container]}
+              >
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../assets/delete_white.png")}
+                />
+              </View>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -446,3 +455,24 @@ const EditProductScreen = ({ navigation, route }) => {
 };
 
 export default EditProductScreen;
+
+
+const styles2 = StyleSheet.create({
+  container: {
+    width: 35,
+    height: 35,
+  },
+  stretch: {
+    width: 35,
+    height: 35,
+    resizeMode: "stretch",
+  },
+  containerFocus: {
+    width: 200,
+    height: 200,
+  },
+  stretchFocus: {
+    width: 200,
+    height: 200,
+  },
+});

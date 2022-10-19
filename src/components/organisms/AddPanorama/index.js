@@ -129,7 +129,7 @@ const PickerAddPanorama = ({
       )
     );
 
-    await d1.setDate(d1.getDate() + 120);
+    await d1.setDate(d1.getDate() + 700);
     await setMaxDateSelect(d1);
   };
 
@@ -427,7 +427,7 @@ const PickerAddPanorama = ({
       setDateNow(value);
       setDateP(
         `${value.getDate() < 10 ? "0" : ""}${value.getDate()}-${
-          value.getMonth() < 10 ? "0" : ""
+          value.getMonth() < 9 ? "0" : ""
         }${value.getMonth() + 1}-${value.getFullYear()}`
       );
     }

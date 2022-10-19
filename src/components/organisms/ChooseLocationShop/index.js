@@ -107,6 +107,7 @@ const PickerLocationShop = ({
     <View style={styles.view}>
       {!loading && (
         <LabelTextComponent
+          style={{top:-16, alignSelf: "center", left: -5}}
           text="Edita tu ubicación"
           color={GlobalVars.blueOpaque}
           size={20}

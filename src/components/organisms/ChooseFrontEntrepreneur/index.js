@@ -122,14 +122,15 @@ const PickerFront = ({
     })) || <></>;
 
   return (
-    <View style={styles.view}>
+    <View style={[styles.view,{minHeight:'55%'}]}>
       {loading && <ActivityIndicator color={GlobalVars.orange} size="large" />}
       {!loading && (
         <>
           <LabelTextComponent
+            style={{top:-33, alignSelf: "center", left: -5}}
             text="Selecciona tu portada"
             color={GlobalVars.blueOpaque}
-            size={15}
+            size={20}
           />
 
           {showErr && (

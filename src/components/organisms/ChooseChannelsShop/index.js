@@ -196,7 +196,7 @@ const PickerChannelsShop = ({
             <View style={[styles2.container]}>
             <Image
               style={styles2.stretch}
-              source={require("../../../../assets/whatsapp.png")}
+              source={require("../../../../assets/whatsapp_orange.png")}
             />
           </View>
           );
@@ -227,7 +227,7 @@ const PickerChannelsShop = ({
             <View style={[styles2.container]}>
             <Image
               style={styles2.stretch}
-              source={require("../../../../assets/whatsapp.png")}
+              source={require("../../../../assets/instagram_orange.png")}
             />
           </View>
           );
@@ -258,7 +258,7 @@ const PickerChannelsShop = ({
             <View style={[styles2.container]}>
             <Image
               style={styles2.stretch}
-              source={require("../../../../assets/facebook.png")}
+              source={require("../../../../assets/facebook_orange.png")}
             />
           </View>
           );
@@ -289,7 +289,7 @@ const PickerChannelsShop = ({
             <View style={[styles2.container]}>
             <Image
               style={styles2.stretch}
-              source={require("../../../../assets/tik_tok.png")}
+              source={require("../../../../assets/tik_tok_orange.png")}
             />
           </View>
           );
@@ -320,7 +320,7 @@ const PickerChannelsShop = ({
             <View style={[styles2.container]}>
             <Image
               style={styles2.stretch}
-              source={require("../../../../assets/fono.png")}
+              source={require("../../../../assets/fono_orange.png")}
             />
           </View>
           );
@@ -350,7 +350,7 @@ const PickerChannelsShop = ({
           socialIcon = (
             <Image
               style={styles2.stretch}
-              source={require("../../../../assets/mailGray.png")}
+              source={require("../../../../assets/mail_orange.png")}
             />
           );
 
@@ -405,6 +405,7 @@ const PickerChannelsShop = ({
     <View style={styles.view}>
       {!loading && (
         <LabelTextComponent
+          style={{top:-10}}
           text="Edita tus canales"
           color={GlobalVars.blueOpaque}
           size={20}

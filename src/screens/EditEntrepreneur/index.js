@@ -257,7 +257,7 @@ const EditEntrepreneurScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="award"
+                  iconOptionN="Rubro"
                   onPress={() => showSelectCategories()}
                   aditionalStyle={styles.optionTouch}
                   customChevronStyle={styles.chevronArrow}
@@ -269,7 +269,7 @@ const EditEntrepreneurScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="map-pin"
+                  iconOptionN="map-pin"
                   onPress={() => showChangeGps()}
                   aditionalStyle={styles.optionTouch}
                   customChevronStyle={styles.chevronArrow}
@@ -293,7 +293,7 @@ const EditEntrepreneurScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="image"
+                  iconOptionN="logo"
                   onPress={() => showSelectAvatar()}
                   aditionalStyle={styles.optionTouch}
                   customChevronStyle={styles.chevronArrow}
@@ -305,7 +305,7 @@ const EditEntrepreneurScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="image"
+                  iconOptionN="Portada"
                   onPress={() => showSelectFrontChoose()}
                   aditionalStyle={styles.optionTouch}
                   customChevronStyle={styles.chevronArrow}
@@ -317,7 +317,7 @@ const EditEntrepreneurScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="check-circle"
+                  iconOptionN="dias"
                   onPress={() => showChangeDays()}
                   aditionalStyle={styles.optionTouch}
                   customChevronStyle={styles.chevronArrow}
@@ -329,7 +329,7 @@ const EditEntrepreneurScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="clock"
+                  iconOptionN="clock"
                   onPress={() => showChangeHours()}
                   aditionalStyle={styles.optionTouch}
                   customChevronStyle={styles.chevronArrow}
@@ -341,7 +341,7 @@ const EditEntrepreneurScreen = ({ navigation }) => {
                   sizeText={16}
                   colorIcon={GlobalVars.white}
                   sizeIcon={20}
-                  iconOption="github"
+                  iconOptionN="Canales"
                   onPress={() => showChangeChannels()}
                   aditionalStyle={styles.optionTouch}
                   customChevronStyle={styles.chevronArrow}

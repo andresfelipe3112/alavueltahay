@@ -108,12 +108,13 @@ const PickerDaysShop = ({
     })) || <></>;
 
   return (
-    <View style={styles.view}>
+    <View style={[styles.view,{paddingTop:20}]}>
       {!loading && (
         <LabelTextComponent
-          text="Edita tus días de atención"
+        style={{top:-5, alignSelf: "center", left:-10}}
+          text="Días de atención"
           color={GlobalVars.blueOpaque}
-          size={18}
+          size={20}
           customStyleBtn={{ textAlign: "left" }}
         />
       )}

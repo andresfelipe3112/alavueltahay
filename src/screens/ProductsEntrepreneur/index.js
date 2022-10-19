@@ -63,10 +63,11 @@ const ProductsScreen = ({ navigation, route }) => {
     <WrappingViews>
       <StatusBarComponent />
       <Header
+      customStyles={{top:10}}
         navigation={navigation}
         user={user}
         _jwt={_jwt}
-        title="Emprendimientos"
+        title="Productos"
         ToRandomDispatch={ToRandomDispatch}
         isJustTitle
       />

@@ -13,9 +13,10 @@ const OptionTouchable = ({
   sizeText,
   colorIcon,
   sizeIcon,
-  iconOption='negocio',
+  iconOption,
   aditionalStyle,
   onPress,
+  iconOptionN,
   customChevronStyle = false,
   ...props
 }) => {
@@ -30,6 +31,23 @@ const OptionTouchable = ({
     ['negocio-1']:require(`../../../../assets/negocio-1.png`),
     negocio:require(`../../../../assets/negocio.png`),
   }
+  let objN ={ 
+    ['intereses']:require(`../../../../assets/intereses.png`),
+    ['contraseña']:require(`../../../../assets/key-1.png`),
+    ['aperture']:require(`../../../../assets/foto_perfil.png`),
+    ['github']:require(`../../../../assets/foto_avatar.png`),
+    ['Rubro']:require(`../../../../assets/rubro.png`),
+    ['Canales']:require(`../../../../assets/canales.png`),
+    ['map-pin']:require(`../../../../assets/map2.png`),
+    ['clock']:require(`../../../../assets/horario.png`),
+    ['logo']:require(`../../../../assets/logo.png`),
+    ['Portada']:require(`../../../../assets/portada.png`),
+    ['dias']:require(`../../../../assets/dias.png`),
+    ['Editar']:require(`../../../../assets/editar_info.png`),
+    ['coffee']:require(`../../../../assets/productos.png`),
+    ['clipboard']:require(`../../../../assets/visualizar_negocio.png`),
+    negocio:require(`../../../../assets/negocio.png`),
+  }
 
   return (
     <TouchableOpacity
@@ -41,6 +59,15 @@ const OptionTouchable = ({
           <Image
             style={styles2.stretchFocus}
             source={obj[iconOption]}
+          />
+        </View>
+      )}
+
+      {iconOptionN && (
+        <View style={[styles2.containerFocus]}>
+          <Image
+            style={styles2.stretchFocus}
+            source={objN[iconOptionN]}
           />
         </View>
       )}
@@ -75,8 +102,8 @@ const styles2 = StyleSheet.create({
     alignItems: "flex-end",
   },
   stretch: {
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
     resizeMode: "stretch",
   },
   containerFocus: {

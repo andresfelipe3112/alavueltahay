@@ -32,6 +32,7 @@ const Header = ({
   user = {},
   isJustTitle = false,
   title = "",
+  customStyles,
   colorBack="orange",
   ...props
 }) => {
@@ -94,7 +95,7 @@ const Header = ({
               size={35}
               navigation={navigation}
               aditionalStyle={{
-                top: "22%",
+                top: "27%",
                 left: 15,
               }}
             />
@@ -162,7 +163,7 @@ const Header = ({
             color={GlobalVars.whiteLight}
             size={20}
             weight="600"
-            customStyles={{}}
+            customStyles={{ }}
           />
         </View>
       </View>
@@ -190,12 +191,16 @@ const Header = ({
               { width: props.noBackButton ? "15%" : "30%" },
             ]}
           >
-            <View style={styles2.container}>
+            <TouchableOpacity 
+            onPress={() =>
+              !isShowUpdateLocation ? showModalUpdateLocation() : null
+            }
+            style={styles2.container}>
               <Image
                 style={styles2.stretch}
                 source={require(".././../../../assets/map-pin_white.png")}
               />
-            </View>
+            </TouchableOpacity>
             {/* <IconTouchable
               name={"map-pin"}
               color={GlobalVars.white}

@@ -120,14 +120,15 @@ const PickerAvatar = ({
     })) || <></>;
 
   return (
-    <View style={styles.view}>
+    <View style={[styles.view,{minHeight:'62%'}]}>
       {loading && <ActivityIndicator color={GlobalVars.orange} size="large" />}
       {!loading && (
         <>
-          <LabelTextComponent
+         <LabelTextComponent
+            style={{top:-33, alignSelf: "center", left: -5}}
             text="Selecciona tu logo"
             color={GlobalVars.blueOpaque}
-            size={15}
+            size={20}
           />
 
           {showErr && (

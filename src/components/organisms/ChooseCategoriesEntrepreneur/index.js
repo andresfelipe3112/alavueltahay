@@ -109,9 +109,10 @@ const PickerCategories = ({
       {!loading && currentCat && (
         <>
           <LabelTextComponent
+            style={{top:-10, alignSelf: "center", left: -5}}
             text="Selecciona Rubro"
             color={GlobalVars.blueOpaque}
-            size={15}
+            size={20}
           />
 
           {showErr && (

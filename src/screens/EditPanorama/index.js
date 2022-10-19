@@ -5,6 +5,8 @@ import {
   ActivityIndicator,
   Platform,
   ImageBackground,
+  Image,
+  StyleSheet,
 } from "react-native";
 
 import { Select } from "native-base";
@@ -361,7 +363,12 @@ const EditPanoramaScreen = ({ navigation, route }) => {
       switch (nameSocial) {
         case "whatsapp":
           socialIcon = (
-            <FontAwesome5 name="whatsapp" size={20} color={GlobalVars.white} />
+            <View style={[styles2.container]}>
+            <Image
+              style={styles2.stretch}
+              source={require("../../../assets/whatsapp_white.png")}
+            />
+          </View>
           );
 
           inputSocial = (
@@ -387,7 +394,12 @@ const EditPanoramaScreen = ({ navigation, route }) => {
 
         case "instagram":
           socialIcon = (
-            <Feather name="instagram" size={24} color={GlobalVars.white} />
+            <View style={[styles2.container]}>
+            <Image
+              style={styles2.stretch}
+              source={require("../../../assets/instagram_white.png")}
+            />
+          </View>
           );
 
           inputSocial = (
@@ -413,7 +425,12 @@ const EditPanoramaScreen = ({ navigation, route }) => {
 
         case "facebook":
           socialIcon = (
-            <Feather name="facebook" size={24} color={GlobalVars.white} />
+            <View style={[styles2.container]}>
+            <Image
+              style={styles2.stretch}
+              source={require("../../../assets/facebook_white.png")}
+            />
+          </View>
           );
 
           inputSocial = (
@@ -439,7 +456,12 @@ const EditPanoramaScreen = ({ navigation, route }) => {
 
         case "tiktok":
           socialIcon = (
-            <FontAwesome5 name="tiktok" size={24} color={GlobalVars.white} />
+            <View style={[styles2.container]}>
+            <Image
+              style={styles2.stretch}
+              source={require("../../../assets/tik_tok_white.png")}
+            />
+          </View>
           );
 
           inputSocial = (
@@ -465,7 +487,12 @@ const EditPanoramaScreen = ({ navigation, route }) => {
 
         case "llamada":
           socialIcon = (
-            <Feather name="phone-call" size={24} color={GlobalVars.white} />
+            <View style={[styles2.container]}>
+            <Image
+              style={styles2.stretch}
+              source={require("../../../assets/fono_white.png")}
+            />
+          </View>
           );
 
           inputSocial = (
@@ -491,7 +518,12 @@ const EditPanoramaScreen = ({ navigation, route }) => {
 
         case "correo":
           socialIcon = (
-            <Feather name="mail" size={24} color={GlobalVars.white} />
+            <View style={[styles2.container]}>
+            <Image
+              style={styles2.stretch}
+              source={require("../../../assets/mail_white.png")}
+            />
+          </View>
           );
 
           inputSocial = (
@@ -830,7 +862,14 @@ const EditPanoramaScreen = ({ navigation, route }) => {
               style={styles.optionDelet}
               onPress={() => showDrop()}
             >
-              <AntDesign name="delete" size={24} color={GlobalVars.white} />
+              <View
+                style={[styles2.container]}
+              >
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../assets/delete_white.png")}
+                />
+              </View>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -889,3 +928,23 @@ const EditPanoramaScreen = ({ navigation, route }) => {
 };
 
 export default EditPanoramaScreen;
+
+const styles2 = StyleSheet.create({
+  container: {
+    width: 35,
+    height: 35,
+  },
+  stretch: {
+    width: 35,
+    height: 35,
+    resizeMode: "stretch",
+  },
+  containerFocus: {
+    width: 200,
+    height: 200,
+  },
+  stretchFocus: {
+    width: 200,
+    height: 200,
+  },
+});

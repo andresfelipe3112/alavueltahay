@@ -51,7 +51,7 @@ const ModalCheckDelete = ({ text = "", ...props }) => {
             Action={() => deleteUser()}
           />
           <ButtonComponent
-            text="cancelar"
+            text="Cancelar"
             color={"white"}
             textColor={GlobalVars.orange}
             customStyleBtn={{ borderColor: GlobalVars.orange, borderWidth: 1 }}

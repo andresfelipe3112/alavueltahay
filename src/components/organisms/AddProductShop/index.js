@@ -272,6 +272,7 @@ const PickerAddProduct = ({
     <View style={styles.view}>
       {!loading && (
         <LabelTextComponent
+        style={{top:-15, alignSelf: "center", left: -5}}
           text="Crear producto"
           color={GlobalVars.blueOpaque}
           size={20}
@@ -566,11 +567,12 @@ const PickerAddProduct = ({
       )}
 
       <TouchableOpacity style={styles.closeIcon} onPress={onClose}>
-        <Entypo
-          name="circle-with-cross"
-          size={24}
-          color={GlobalVars.blueOpaque}
-        />
+      <View style={styles2.container}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../../assets/close-orange.png")}
+                />
+              </View>
       </TouchableOpacity>
     </View>
   );
