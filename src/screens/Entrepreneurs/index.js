@@ -1,6 +1,12 @@
 import React, { useEffect, useState, useCallback, useContext } from "react";
 
-import { View, ActivityIndicator, BackHandler } from "react-native";
+import {
+  View,
+  ActivityIndicator,
+  BackHandler,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 
 import { useFocusEffect } from "@react-navigation/native";
 
@@ -20,9 +26,18 @@ import MapViewComponent from "../../components/organisms/MapView";
 import EntrepreneursGrid from "../../components/organisms/EntrepreneursGrid";
 import ScrollView from "../../components/templates/ScrollView";
 import WrappingViews from "../../components/templates/WrappingViews";
+import distancesUtil from "../../utils/calculateGPSdistances";
 
 /** Styles */
 import Styles from "./style";
+import { GET_ALLS_ENTREPRENEURS } from "../../mock/entrepreneurs";
+import { shuffleArray } from "../../helpers/shuffleArr";
+import LabelTextComponent from "../../components/atoms/LabelText";
+import ProductCard from "../../components/molecules/ProductCard";
+import EntrepreneurCard from "../../components/molecules/EntrepreneurCard";
+import { async } from "@firebase/util";
+import ImageUriComponent from "../../components/atoms/ImageUriComponent";
+import TitleComponent from "../../components/atoms/Titles";
 
 const styles = Styles;
 const EntrepreneursScreen = ({ navigation }) => {
@@ -36,7 +51,131 @@ const EntrepreneursScreen = ({ navigation }) => {
   const [gps, setGps] = useState(null);
   const [filterText, setFilterText] = useState("");
 
-  useEffect(() => {}, []);
+  const [nearResults, setNearResults] = React.useState([]);
+  const [dataFilter, setDataFilter] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+
+  const returnAction = (item) => {
+    navigation.navigate("Shop", { shop: item });
+  };
+
+  let ResultsNearToSearch = dataFilter.map((item, i) => {
+    return (
+      <View>
+        <TouchableOpacity
+          style={{
+            marginHorizontal: 15,
+            width: 120,
+            height: 180,
+            backgroundColor: "white",
+            borderRadius: 24,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5,
+            marginBottom:10
+          }}
+          onPress={() => returnAction(item)}
+        >
+          {item?.attributes?.avatar && !item?.attributes?.imageFirst?.data && (
+            <ImageUriComponent
+              radius={0}
+              mode="cover"
+              img={{
+                uri: item?.attributes?.avatar?.data?.attributes?.uriAvatar,
+              }}
+              width="100%"
+              height={GlobalVars.windowWidth / 3}
+              borderTopRadius={25}
+            />
+          )}
+
+          {!item?.attributes?.avatar?.data &&
+            item?.attributes?.imageFirst?.data && (
+              <ImageUriComponent
+                radius={0}
+                mode="cover"
+                img={{
+                  uri: item?.attributes?.imageFirst?.data?.attributes?.uri,
+                }}
+                width="100%"
+                height={GlobalVars.windowWidth / 3}
+                borderTopRadius={25}
+              />
+            )}
+
+          {item?.attributes?.avatar?.data &&
+            item?.attributes?.imageFirst?.data && (
+              <ImageUriComponent
+                radius={0}
+                mode="cover"
+                img={{
+                  uri: item?.attributes?.imageFirst?.data?.attributes?.uri,
+                }}
+                width="100%"
+                height={GlobalVars.windowWidth / 3}
+                borderTopRadius={25}
+              />
+            )}
+          <View style={[styles.contentCardIsLarge,{alignItems: 'center',paddingTop:4}]}>
+            <TitleComponent
+              title={item?.attributes?.entrepreneurship}
+              color={GlobalVars.textGrayColor}
+              size={14}
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+  });
+
+  const fn = async () => {
+    let a = [];
+    let c = [];
+    let b = await nearResults.map(async (element, i) => {
+      const res = await distancesUtil.calculateDistances(
+        gps,
+        element?.attributes?.gps
+      );
+      console.log("res", res);
+      const distanceBetween = res / 1000;
+      if (distancesUtil.distanceMax >= distanceBetween) {
+        a.push(element);
+      }
+      // return res
+    });
+    setLoading(false);
+    setDataFilter(a);
+  };
+
+  useEffect(() => {
+    fn();
+  }, [nearResults]);
+
+  useEffect(() => {
+    console.log("dataFilter", dataFilter);
+  }, [dataFilter]);
+
+  const recoverNearbyPlaces = async () => {
+    await setLoading(true);
+    await setNearResults([]);
+    console.log("hola");
+    const result = await GET_ALLS_ENTREPRENEURS(_jwt);
+    console.log(result);
+    setNearResults(result);
+    if (result) {
+      console.log("se ejecuta");
+      fn();
+    }
+  };
+
+  useEffect(() => {
+    recoverNearbyPlaces();
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -112,7 +251,33 @@ const EntrepreneursScreen = ({ navigation }) => {
             bgBlue
           />
         </View>
+   
+          {(!loading && dataFilter.length && (
+            <View style={{ marginLeft: 10 }}>
+              <LabelTextComponent
+                style={{ alignSelf: "left", left: 10 }}
+                text="Cerca de tí"
+                color={GlobalVars.textGrayColor}
+                size={15}
+              />
+              <ScrollView horizontal>
+                <View style={{ display: "flex", flexDirection: "row", backgroundColor: GlobalVars.fondoPrincipal,zIndex:100 }}>
+                  {(!loading && dataFilter.length && ResultsNearToSearch) || (
+                    <></>
+                  )}
+                </View>
+              </ScrollView>
 
+            </View>
+          )) || <></>}
+
+
+        <LabelTextComponent
+          style={{ alignSelf: "left", left: 23, marginBottom: -16 }}
+          text="Todos los resultados"
+          color={GlobalVars.textGrayColor}
+          size={15}
+        />
         <EntrepreneursGrid jwt={_jwt} filterText={filterText} />
       </ScrollView>
     </WrappingViews>

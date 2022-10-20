@@ -187,7 +187,7 @@ export default function ProductsGrid({
           gps,
           element?.attributes?.entrepreneurship?.data?.attributes?.gps
         );
-
+        console.log('res',res);
         const distanceBetween = res / 1000;
 
         if (distancesUtil.distanceMax >= distanceBetween) {

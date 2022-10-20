@@ -27,7 +27,7 @@ const Styles = StyleSheet.create({
     width: GlobalVars.windowWidth - 40,
     backgroundColor: GlobalVars.blueOpaque,
     height:
-      GlobalVars.windowHeight > 350 ? GlobalVars.windowHeight / 1.6 : "100%",
+      GlobalVars.windowHeight > 350 ? GlobalVars.windowHeight / 1.4 : "100%",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
