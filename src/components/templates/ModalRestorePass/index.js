@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, View, TouchableOpacity, Alert } from "react-native";
+import { Modal, View, TouchableOpacity, Alert, StyleSheet, Image } from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
 
@@ -99,11 +99,12 @@ const ModalResetPass = (props) => {
               style={{ position: "absolute", top: 15, right: 15 }}
               onPress={onHelp}
             >
-              <AntDesign
-                name="closecircleo"
-                size={24}
-                color={GlobalVars.white}
-              />
+              <View style={[styles2.container]}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../../assets/x-circle-1.png")}
+                />
+              </View>
             </TouchableOpacity>
 
             <TitleComponent
@@ -150,3 +151,23 @@ const ModalResetPass = (props) => {
 };
 
 export default ModalResetPass;
+
+const styles2 = StyleSheet.create({
+  container: {
+    width: 50,
+    height: 50,
+  },
+  stretch: {
+    width: 40,
+    height: 40,
+    resizeMode: "stretch",
+  },
+  containerFocus: {
+    width: 42,
+    height: 42,
+  },
+  stretchFocus: {
+    width: 42,
+    height: 42,
+  },
+});

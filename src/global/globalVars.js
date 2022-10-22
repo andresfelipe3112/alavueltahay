@@ -26,6 +26,7 @@ const GlobalVars = {
   // urlapi: "https://aqueous-atoll-80760.herokuapp.com/api",
   // Production
   urlapi: "https://a-la-vuelta-hay-backend.herokuapp.com/api",
+ // urlapi: "http://Mac-mini-de-Andres.local:1337/api",
 
   /** Fonts generals fields */
   fontFamily: "Poppins",

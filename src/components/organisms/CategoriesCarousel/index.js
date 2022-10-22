@@ -36,7 +36,10 @@ export default function CategoriesCarouselComponent({
 
   const getCategoriesWhenCase = async () => {
     if (isFavCats) {
+      console.log('_jwt', _jwt);
+      
       const res = await GET_CATEGORIES_BY_USER(_jwt);
+      console.log('GET_CATEGORIES_BY_USER',res);
       setResult(res);
     } else if (isNearCats) {
     } else if (isAllCats) {
@@ -89,6 +92,7 @@ export default function CategoriesCarouselComponent({
             aditionalStyle={styles.viewAllLabel}
           />
         </View>
+
         <AnimatedScrollView
           style={styles.stylesCarousel}
           horizontal={true}
