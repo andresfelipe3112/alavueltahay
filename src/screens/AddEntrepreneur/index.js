@@ -7,6 +7,7 @@ import {
   BackHandler,
   ScrollView,
   ActivityIndicator,
+  StyleSheet,
 } from "react-native";
 
 /** Import Global Variables */
@@ -289,3 +290,25 @@ const AggreeShopScreen = ({ navigation }) => {
 };
 
 export default AggreeShopScreen;
+
+
+const styles2 = StyleSheet.create({
+  container: {
+    width:35,
+    height:35,
+  },
+  stretch: {
+    width: 35,
+    height: 35,
+    resizeMode: "stretch",
+    left: 45,
+  },
+  containerFocus:{
+    width: 42,
+    height: 42,
+  },
+  stretchFocus:{
+    width: 42,
+    height: 42,
+  }
+});

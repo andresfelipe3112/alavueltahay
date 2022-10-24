@@ -37,6 +37,8 @@ import ModalAlert from "../../templates/ModalAlert";
 import ModalFinish from "../../templates/ModalFinish";
 
 import Styles from "./style";
+import { Image } from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = Styles;
 
@@ -1130,12 +1132,12 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
                 style={styles.back}
                 onPress={() => setPrevProcess()}
               >
-                <AntDesign
-                  name="back"
-                  size={24}
-                  color={GlobalVars.firstColor}
-                  style={styles.iconBack}
-                />
+                 <View style={styles2.container}>
+                <Image
+                    style={styles2.stretch}
+                    source={require(".././../../../assets/back.png")}
+                  />
+                </View>
                 <LabelTouchable
                   sizeText={15}
                   label="Volver"
@@ -1207,3 +1209,25 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
 };
 
 export default OnBoarding4;
+
+const styles2 = StyleSheet.create({
+  container: {
+    width:35,
+    height:35,
+    left:-42
+  },
+  stretch: {
+    width: 35,
+    height: 35,
+    resizeMode: "stretch",
+    left: 45,
+  },
+  containerFocus:{
+    width: 42,
+    height: 42,
+  },
+  stretchFocus:{
+    width: 42,
+    height: 42,
+  }
+});

@@ -93,6 +93,8 @@ const EditProfileScreen = ({ navigation }) => {
   const getDataUser = async () => {
     setLoading(true);
     const res = await GET_USER_INFO(_jwt);
+    console.log('GET_USER_INFO', res);
+    
     setDataUser(res || null);
     if (res) {
       setName(res?.names || "");

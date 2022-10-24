@@ -29,13 +29,13 @@ import OptionTouchable from "../../components/molecules/ProfileOption";
 import Header from "../../components/organisms/Header";
 import ScrollView from "../../components/templates/ScrollView";
 import WrappingViews from "../../components/templates/WrappingViews";
-import ModalInvite from "../../components/templates/ModalInvite";    
- 
+import ModalInvite from "../../components/templates/ModalInvite";
 
 /** Styles */
 import Styles from "./style";
 import ModalCheckDelete from "../../components/templates/ModalCheckDelete";
 import userInvitadData from "../../utils/useInvitado";
+import { GET_ALLS_PRODUCTS_ENTREPRENEUR } from "../../mock/productsByEntrepreneur";
 
 const styles = Styles;
 const UserProfileScreen = ({ navigation }) => {
@@ -50,15 +50,11 @@ const UserProfileScreen = ({ navigation }) => {
 
   const [ToRandomDispatch, setToRandomDispatch] = useState(null);
 
-  useEffect(() => {}, []);
-
   useFocusEffect(
     useCallback(() => {
       /** Backhandler process Android -> back button */
       BackHandlerProcess();
-
       RecoverData();
-
       getRandomNumberDispatch();
     }, [])
   );
@@ -71,7 +67,7 @@ const UserProfileScreen = ({ navigation }) => {
 
   const onHandle = async () => {
     await Storage.clearAll();
-    await  _setJwt(null);
+    await _setJwt(null);
     await setUser(null);
     await useFirebase.SignedOut(navigation);
   };
@@ -102,20 +98,50 @@ const UserProfileScreen = ({ navigation }) => {
 
   const [isShowingAlert, setShowhingAlert] = useState(false);
   const [isShowingInvite, setShowingInvite] = useState(false);
+
   const deleteUser = async () => {
+    const idNegocio = await Storage.getItem("_USER_ENTREPRENEUR");
+    const token = await Storage.getItem("_TOKEN_API");
+    const res = await GET_ALLS_PRODUCTS_ENTREPRENEUR(idNegocio, token);
+    let array = res;
+    console.log("GET_ALLS_PRODUCTS_ENTREPRENEUR", res);
+
+    if (res && res.length > 0) {
+      let deleteProduct = array.map(async (element) => {
+        const user = await FetchLib.fetchDrop(
+          `https://a-la-vuelta-hay-backend.herokuapp.com/api/products/${element.id}`,
+          token
+        );
+      });
+      console.log("deleteProduct", deleteProduct);
+    }
     try {
-       const data = await Storage.getItem("_USER_LOGGED");
-       const token = await Storage.getItem("_TOKEN_API");
-       console.log(data.id);
-       const user = await FetchLib.fetchDrop(`https://a-la-vuelta-hay-backend.herokuapp.com/api/users/${data.id}`, token)
-       console.log(user);
-       Storage.clearAll()
-       setShowhingAlert(!isShowingAlert)
-       navigation.navigate("Initial")
-     } catch (error) {
+      const idNegocio = await Storage.getItem("_USER_ENTREPRENEUR");
+      const negocio = await FetchLib.fetchDrop(
+        `https://a-la-vuelta-hay-backend.herokuapp.com/api/entrepreneurships/${idNegocio}`,
+        token
+      );
+      console.log("negocio", negocio);
+    } catch (error) {}
+
+    try {
+      const data = await Storage.getItem("_USER_LOGGED");
+      console.log(data.id);
+      const user = await FetchLib.fetchDrop(
+        `https://a-la-vuelta-hay-backend.herokuapp.com/api/users/${data.id}`,
+        token
+      );
+      Storage.clearAll();
+        setShowhingAlert(!isShowingAlert)
+          navigation.navigate("Initial");
+    } catch (error) {
       console.log(error);
-     }
-  }
+    }
+  };
+
+  useEffect(() => {
+    //  getDataEntrepreneur()
+  }, []);
 
   return (
     <WrappingViews>
@@ -152,15 +178,17 @@ const UserProfileScreen = ({ navigation }) => {
               <View style={styles.subray} />
             </View>
 
-          { data && <OptionTouchable
-              text="Mi perfil"
-              colorText={GlobalVars.white}
-              sizeText={16}
-              colorIcon={GlobalVars.white}
-              sizeIcon={20}
-              iconOption="user_white"
-              onPress={() => navigation.navigate("EditProfile")}
-            />}
+            {data && (
+              <OptionTouchable
+                text="Mi perfil"
+                colorText={GlobalVars.white}
+                sizeText={16}
+                colorIcon={GlobalVars.white}
+                sizeIcon={20}
+                iconOption="user_white"
+                onPress={() => navigation.navigate("EditProfile")}
+              />
+            )}
 
             {entrepreneur?.id && (
               <OptionTouchable
@@ -182,19 +210,25 @@ const UserProfileScreen = ({ navigation }) => {
                 colorIcon={GlobalVars.white}
                 sizeIcon={20}
                 iconOption="negocio"
-                onPress={() => data === false ? setShowingInvite(!isShowingInvite) : navigation.navigate("AggreeEntrepreneur")}
+                onPress={() =>
+                  data === false
+                    ? setShowingInvite(!isShowingInvite)
+                    : navigation.navigate("AggreeEntrepreneur")
+                }
               />
             )}
 
-            {data && <OptionTouchable
-              text="Panoramas"
-              colorText={GlobalVars.white}
-              sizeText={16}
-              colorIcon={GlobalVars.white}
-              sizeIcon={20}
-              iconOption="negocio-1"
-              onPress={() => navigation.navigate("MyPanoramas")}
-            />}
+            {data && (
+              <OptionTouchable
+                text="Panoramas"
+                colorText={GlobalVars.white}
+                sizeText={16}
+                colorIcon={GlobalVars.white}
+                sizeIcon={20}
+                iconOption="negocio-1"
+                onPress={() => navigation.navigate("MyPanoramas")}
+              />
+            )}
 
             <OptionTouchable
               text="Términos y condiciones"
@@ -205,25 +239,26 @@ const UserProfileScreen = ({ navigation }) => {
               iconOption="terminos_condiciones"
               onPress={() => navigation.navigate("TermsConditions")}
             />
-        
 
-            {data && <OptionTouchable
-              text="Eliminar mi cuenta"
-              colorText={GlobalVars.white}
-              sizeText={16}
-              colorIcon={GlobalVars.white}
-              sizeIcon={20}
-              iconOption="user-x-1"
-              onPress={() => setShowhingAlert(!isShowingAlert)}
-            />}
+            {data && (
+              <OptionTouchable
+                text="Eliminar mi cuenta"
+                colorText={GlobalVars.white}
+                sizeText={16}
+                colorIcon={GlobalVars.white}
+                sizeIcon={20}
+                iconOption="user-x-1"
+                onPress={() => setShowhingAlert(!isShowingAlert)}
+              />
+            )}
 
             <TouchableOpacity style={[styles.poweroff]} onPress={onHandle}>
-            <View style={[styles2.container]}>
-              <Image
-                style={styles2.stretch}
-                source={require("../../../assets/power_off.png")}
-              />
-            </View>
+              <View style={[styles2.container]}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../assets/power_off.png")}
+                />
+              </View>
               <LabelTextComponent
                 text="Cerrar sesión"
                 color={GlobalVars.white}
@@ -247,17 +282,17 @@ const UserProfileScreen = ({ navigation }) => {
             </View>
           </View>
           <ModalCheckDelete
-           openModal={isShowingAlert}
-           deleteUser={() => deleteUser() }
-           cancelModal={() => setShowhingAlert(!isShowingAlert)}
-      />
-       <ModalInvite
-       text='Necesitas una cuenta de usuario para crear tu negocio. ¡Regístrate, es muy sencillo!'
-           openModal={isShowingInvite}
-           deleteUser={() => console.log('hola')}
-           cancelModal={() => setShowingInvite(!isShowingInvite)}
-      />
-           {/* import ModalInvite from "../../components/templates/ModalInvite";    
+            openModal={isShowingAlert}
+            deleteUser={() => deleteUser()}
+            cancelModal={() => setShowhingAlert(!isShowingAlert)}
+          />
+          <ModalInvite
+            text="Necesitas una cuenta de usuario para crear tu negocio. ¡Regístrate, es muy sencillo!"
+            openModal={isShowingInvite}
+            deleteUser={() => console.log("hola")}
+            cancelModal={() => setShowingInvite(!isShowingInvite)}
+          />
+          {/* import ModalInvite from "../../components/templates/ModalInvite";    
            const [data] = userInvitadData();
            const [isShowingInvite, setShowingInvite] = useState(false);
            <OptionTouchable

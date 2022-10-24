@@ -10,8 +10,10 @@ const Styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
     marginTop: GlobalVars.windowHeight / 20,
+    marginTop:22,
+    marginBottom: -20
   },
-
+  
   viewContainer: {
     width: "100%",
     justifyContent: "center",

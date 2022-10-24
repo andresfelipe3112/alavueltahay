@@ -272,12 +272,12 @@ const OnBoarding1 = ({ onBoardCurrent, ...props }) => {
               >
                 {/* <Entypo name="chevron-left" size={size} color={color} /> */}
 
-                <View style={styles2.container}>
+                {/* <View style={styles2.container}> */}
                   <Image
                     style={styles2.stretch}
                     source={require(".././../../../assets/back.png")}
                   />
-                </View>
+                {/* </View> */}
                 <LabelTouchable
                   customStyleTxt={{ left: "100%" }}
                   sizeText={15}
@@ -298,18 +298,26 @@ export default OnBoarding1;
 
 const styles2 = StyleSheet.create({
   container: {
-    width: 100,
-    height:35,
+    paddingTop:3,
+    height:50,
     display: "flex",
     flexDirection: 'row',
-    position: "absolute",
-    top: GlobalVars.windowHeight < 725 ? "2.5%" : "4%",
-    left: "8%",
+    top:
+    GlobalVars.windowHeight < 725
+      ? -GlobalVars.windowHeight / 200
+      : GlobalVars.windowHeight / 30,
+      left:-10,
+      position: "absolute",
+      alignSelf: "",
+    // position: "absolute",
+    // top: GlobalVars.windowHeight < 725 ? "2.5%" : "4%",
+    // left: "8%",
   },
   stretch: {
     width: 35,
     height: 35,
     resizeMode: "stretch",
+    left: 45,
   },
   containerFocus:{
     width: 42,

@@ -27,14 +27,12 @@ const MainEntrepreneurScreen = ({ navigation }) => {
   const [ToRandomDispatch, setToRandomDispatch] = useState(null);
 
   useEffect(() => {}, []);
-
   useEffect(() => {}, [ToRandomDispatch]);
 
   useFocusEffect(
     useCallback(() => {
       /** Backhandler process Android -> back button */
       BackHandlerProcess();
-
       getRandomNumberDispatch();
     }, [])
   );

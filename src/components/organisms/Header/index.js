@@ -33,7 +33,7 @@ const Header = ({
   isJustTitle = false,
   title = "",
   customStyles,
-  colorBack="orange",
+  colorBack = "orange",
   ...props
 }) => {
   const { setShowTotalMenu } = props;
@@ -163,7 +163,7 @@ const Header = ({
             color={GlobalVars.whiteLight}
             size={20}
             weight="600"
-            customStyles={{ }}
+            customStyles={{}}
           />
         </View>
       </View>
@@ -191,11 +191,12 @@ const Header = ({
               { width: props.noBackButton ? "15%" : "30%" },
             ]}
           >
-            <TouchableOpacity 
-            onPress={() =>
-              !isShowUpdateLocation ? showModalUpdateLocation() : null
-            }
-            style={styles2.container}>
+            <TouchableOpacity
+              onPress={() =>
+                !isShowUpdateLocation ? showModalUpdateLocation() : null
+              }
+              style={styles2.container}
+            >
               <Image
                 style={styles2.stretch}
                 source={require(".././../../../assets/map-pin_white.png")}
@@ -353,10 +354,14 @@ const Header = ({
 
             {!avatar && !image && (
               <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Feather
-                  name="camera"
-                  size={70}
-                  color={GlobalVars.blueComplementary}
+                <ImageUriComponent
+                  width={GlobalVars.windowHeight < 700 ? 60 : 70}
+                  height={GlobalVars.windowHeight < 700 ? 60 : 70}
+                  radius={150}
+                  mode="cover"
+                  img={require("../../../../assets/1D.png")}
+                  borderTopRadius={150}
+                  borderBottomRadius={150}
                 />
               </TouchableOpacity>
             )}
@@ -424,7 +429,7 @@ const Header = ({
             name={"keyboard-arrow-down"}
             color={GlobalVars.white}
             size={25}
-            open={'close'}
+            open={"close"}
             onPress={() => setShowTotalMenu()}
             family="MaterialIcons"
             aditionalStyle={{

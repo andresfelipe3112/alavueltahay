@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback, useContext } from "react";
 
-import { BackHandler, ActivityIndicator, ImageBackground } from "react-native";
+import { BackHandler, ActivityIndicator, ImageBackground, View } from "react-native";
 
 import { useFocusEffect } from "@react-navigation/native";
 
@@ -198,7 +198,7 @@ const HomeScreen = ({ route, navigation }) => {
                 navigation={navigation}
                 ToRandomDispatch={ToRandomDispatch}
                 isFavCats
-              />
+                />
 
               <EntrepreneurCarousel
                 _jwt={_jwt}
@@ -220,7 +220,8 @@ const HomeScreen = ({ route, navigation }) => {
         </ScrollView>
       </ImageBackground>
 
-      {isOpenWelcome && (
+      {
+      isOpenWelcome && (
         <ModalWelcome
           textBtn={textBtnWelcome}
           text={textWelcome}

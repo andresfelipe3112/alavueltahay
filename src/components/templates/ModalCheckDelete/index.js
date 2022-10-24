@@ -6,6 +6,7 @@ import {
   Alert,
   Text,
   StyleSheet,
+  ActivityIndicator,
 } from "react-native";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -19,6 +20,7 @@ import ButtonComponent from "../../atoms/ButtonComponent";
 
 const ModalCheckDelete = ({ text = "", ...props }) => {
   const { openModal, deleteUser, cancelModal } = props;
+  const [loading, setloading] = useState(false);
 
   return (
     <Modal animationType="slide" transparent={true} visible={openModal}>
@@ -34,6 +36,7 @@ const ModalCheckDelete = ({ text = "", ...props }) => {
               top: -40,
             }}
           >
+                 {loading && <ActivityIndicator color={GlobalVars.orange} size="large" />}
             <Text style={[internalstyles.text, {marginBottom:20, fontSize:18} ]}>Eliminar cuenta</Text>
             <Text style={[internalstyles.text, {fontSize:18, textAlign: "center", marginBottom: 10 }]}>
               ¿Estar segur@ que deseas eliminar tu cuenta?
@@ -48,7 +51,9 @@ const ModalCheckDelete = ({ text = "", ...props }) => {
             color={GlobalVars.orange}
             textColor={GlobalVars.white}
             customStyleBtn={{}}
-            Action={() => deleteUser()}
+            Action={() => {
+              setloading(true)
+              deleteUser()}}
           />
           <ButtonComponent
             text="Cancelar"
