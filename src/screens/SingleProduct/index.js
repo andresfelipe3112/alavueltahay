@@ -194,11 +194,12 @@ const SingleProductScreen = ({ navigation, route }) => {
                 },
               ]}
             >
-              <AntDesign
-                name="checkcircleo"
-                size={30}
-                color={GlobalVars.orange}
-              />
+              <View style={styles2.containerFocus}>
+              <Image
+                style={styles2.stretchFocus}
+                source={require("../../../assets/check.png")}
+                />
+            </View>
               <LabelTextComponent
                 text={`${user?.names}, Se envió el mensaje por Whatsapp, ${product?.attributes?.entrepreneurship?.data?.attributes?.entrepreneurship} también recibió una notificación.`}
                 color={GlobalVars.textGrayColor}

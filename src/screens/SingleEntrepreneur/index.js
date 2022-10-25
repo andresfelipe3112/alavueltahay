@@ -571,11 +571,12 @@ const SingleEntrepreneursScreen = ({ navigation, route }) => {
                 },
               ]}
             >
-              <Feather
-                name="phone-call"
-                size={24}
-                color={GlobalVars.blueOpaque}
-              />
+               <View style={styles2.container}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../assets/fono_white.png")}
+                />
+              </View>
               <View style={{ width: 20 }} />
               <LabelTouchable
                 sizeText={15}
@@ -595,7 +596,12 @@ const SingleEntrepreneursScreen = ({ navigation, route }) => {
                 },
               ]}
             >
-              <Feather name="mail" size={24} color={GlobalVars.blueOpaque} />
+               <View style={styles2.container}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../assets/mail_white.png")}
+                />
+              </View>
               <View style={{ width: 20 }} />
               <LabelTouchable
                 sizeText={15}

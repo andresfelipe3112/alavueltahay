@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { View, TouchableOpacity, ActivityIndicator } from "react-native";
+import { View, TouchableOpacity, ActivityIndicator, StyleSheet, Image } from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
 
@@ -104,14 +104,28 @@ const PickerDropNotification = (props) => {
       )}
 
       <TouchableOpacity style={styles.closeIcon} onPress={onClose}>
-        <Entypo
-          name="circle-with-cross"
-          size={24}
-          color={GlobalVars.blueOpaque}
-        />
+      <View style={styles2.container}>
+              <Image
+                style={styles2.stretch}
+                source={require("../../../../assets/close-orange.png")}
+                />
+            </View>
       </TouchableOpacity>
     </View>
   );
 };
 
 export default PickerDropNotification;
+
+
+const styles2 = StyleSheet.create({
+  container: {
+    width:40,
+    height:40,
+  },
+  stretch: {
+    width: 40,
+    height: 40,
+    resizeMode: "stretch",
+  },
+});

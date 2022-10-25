@@ -350,11 +350,12 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
         switch (nameSocial) {
           case "whatsapp":
             socialIcon = (
-              <FontAwesome5
-                name="whatsapp"
-                size={20}
-                color={GlobalVars.white}
+              <View style={styles2.container}>
+              <Image
+                style={styles2.stretch}
+                source={require("../../../../assets/whatsapp_white.png")}
               />
+            </View>
             );
 
             inputSocial = (
@@ -378,7 +379,12 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
 
           case "instagram":
             socialIcon = (
-              <Feather name="instagram" size={24} color={GlobalVars.white} />
+              <View style={styles2.container}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../../assets/instagram_white.png")}
+                />
+              </View>
             );
 
             inputSocial = (
@@ -402,7 +408,12 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
 
           case "facebook":
             socialIcon = (
-              <Feather name="facebook" size={24} color={GlobalVars.white} />
+              <View style={styles2.container}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../../assets/facebook_white.png")}
+                />
+              </View>
             );
 
             inputSocial = (
@@ -426,7 +437,12 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
 
           case "tiktok":
             socialIcon = (
-              <FontAwesome5 name="tiktok" size={24} color={GlobalVars.white} />
+              <View style={styles2.container}>
+              <Image
+                style={styles2.stretch}
+                source={require("../../../../assets/tik_tok_white.png")}
+              />
+            </View>
             );
 
             inputSocial = (
@@ -450,7 +466,12 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
 
           case "llamada":
             socialIcon = (
-              <Feather name="phone-call" size={24} color={GlobalVars.white} />
+              <View style={styles2.container}>
+                <Image
+                  style={styles2.stretch}
+                  source={require("../../../../assets/fono_white.png")}
+                />
+              </View>
             );
 
             inputSocial = (
@@ -474,7 +495,12 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
 
           case "correo":
             socialIcon = (
-              <Feather name="mail" size={24} color={GlobalVars.white} />
+              <View style={styles2.container}>
+              <Image
+                style={styles2.stretch}
+                source={require("../../../../assets/mail_white.png")}
+              />
+            </View>
             );
 
             inputSocial = (

@@ -302,11 +302,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                               _selectedItem={{
                                 bg: "orange.100",
                                 endIcon: (
-                                  <AntDesign
-                                    name="check"
-                                    size={20}
-                                    color={GlobalVars.firstColor}
-                                  />
+                                  <></>
                                 ),
                                 borderColor: GlobalVars.firstColor,
                               }}
