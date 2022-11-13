@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   ActivityIndicator,
@@ -6,7 +6,9 @@ import {
   ImageBackground,
   Platform,
   Text,
+  Dimensions,
 } from "react-native";
+import RNPickerSelect from "react-native-picker-select";
 
 import CheckboxExpo from "expo-checkbox";
 
@@ -51,6 +53,21 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
   const [isShowingAlert, setShowhingAlert] = React.useState(false);
 
   const swiper = React.useRef(null);
+  const [data, setData] = React.useState([{ label: "", value: "" }]);
+
+  const optionsCategoriesB = () => {
+    let array = [];
+    categories.forEach((category) => {
+      let obj = { value: category.id, label: category?.attributes?.category };
+      array.push(obj);
+    });
+    setData(array);
+    console.log(array);
+  };
+
+  React.useEffect(() => {
+    optionsCategoriesB();
+  }, [categories]);
 
   React.useEffect(() => {
     /** GET DATA */
@@ -198,7 +215,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <View style={styles.container}>
+            <View style={[styles.container, { marginTop:Dimensions.get("screen").height < 550 ? 20 :13 } ]}>
               <Swiper
                 ref={swiper}
                 key={5}
@@ -287,7 +304,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                               style={{ alignSelf: "center" }}
                             />
                           )}
-                          {categories.length ? (
+                          {/* {Platform.OS !== "ios" && categories.length ? ( */}
                             <Select
                               selectedValue={props.shopCat}
                               accessibilityLabel="Selecciona rubro"
@@ -301,9 +318,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                               placeholderTextColor={GlobalVars.firstColor}
                               _selectedItem={{
                                 bg: "orange.100",
-                                endIcon: (
-                                  <></>
-                                ),
+                                endIcon: <></>,
                                 borderColor: GlobalVars.firstColor,
                               }}
                               _hover={{
@@ -326,9 +341,48 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                             >
                               {optionsCategories}
                             </Select>
+                          {/* ) 
+                          : (
+                            <></>
+                          )} */}
+
+                          {/* {Platform.OS === "ios" && categories.length ? (
+                            <RNPickerSelect
+                            placeholder={{value: "Selecciona rubro", label: "Selecciona rubro",}}
+                              style={{
+                                placeholder: {
+                                  color: GlobalVars.firstColor,
+                                  backgroundColor: GlobalVars.white,
+                                  padding: 10,
+                                  borderRadius: 5,
+                                },
+                                inputIOS: {
+                                  color: GlobalVars.firstColor,
+                                  backgroundColor: GlobalVars.white,
+                                  padding: 10,
+                                  borderRadius: 5,
+                                },
+                                inputAndroid: {
+                                  color: GlobalVars.firstColor,
+                                  backgroundColor: GlobalVars.white,
+                                  padding: 10,
+                                  borderRadius: 5,
+                                },
+                              }}
+                              onValueChange={(itemValue) => {
+                                const CatTemp = categories.filter(
+                                  (item) => item?.id === itemValue
+                                );
+                                props.setShopCat(itemValue);
+                                props.setShopCatName(
+                                  CatTemp[0]?.attributes?.category
+                                );
+                              }}
+                              items={data}
+                            />
                           ) : (
                             <></>
-                          )}
+                          )} */}
                         </View>
                       </ScrollView>
                     </View>
@@ -915,7 +969,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                 onPress={() => setPrevProcess()}
               >
                 <View style={styles2.container}>
-                <Image
+                  <Image
                     style={styles2.stretch}
                     source={require(".././../../../assets/back.png")}
                   />
@@ -945,9 +999,9 @@ export default OnBoarding3;
 
 const styles2 = StyleSheet.create({
   container: {
-    width:35,
-    height:35,
-    left:-42
+    width: 35,
+    height: 35,
+    left: -42,
   },
   stretch: {
     width: 35,
@@ -955,12 +1009,12 @@ const styles2 = StyleSheet.create({
     resizeMode: "stretch",
     left: 45,
   },
-  containerFocus:{
+  containerFocus: {
     width: 42,
     height: 42,
   },
-  stretchFocus:{
+  stretchFocus: {
     width: 42,
     height: 42,
-  }
+  },
 });

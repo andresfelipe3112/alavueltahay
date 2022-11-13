@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Platform,
+  KeyboardAvoidingView,
+  Keyboard,
 } from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
@@ -103,11 +105,32 @@ const PickerLocationShop = ({
     }
   };
 
+  const [keyboardStatus, setKeyboardStatus] = useState(undefined);
+
+  useEffect(() => {
+    const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
+      console.log('sube');
+      
+      setKeyboardStatus("Keyboard Shown");
+    });
+    const hideSubscription = Keyboard.addListener("keyboardDidHide", () => {
+      console.log('baja');
+      
+      setKeyboardStatus("Keyboard Hidden");
+    });
+
+    return () => {
+      showSubscription.remove();
+      hideSubscription.remove();
+    };
+  }, []);
+
   return (
-    <View style={styles.view}>
+    <View style={[styles.view, Platform.OS ==='android' && keyboardStatus === "Keyboard Shown" && {marginTop:330}]}>
+
       {!loading && (
         <LabelTextComponent
-          style={{top:-16, alignSelf: "center", left: -5}}
+          style={{ top: Platform.OS === "ios" ?-17: -25, alignSelf: "center", left: -5}}
           text="Edita tu ubicación"
           color={GlobalVars.blueOpaque}
           size={20}

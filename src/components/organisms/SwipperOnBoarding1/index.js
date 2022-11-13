@@ -121,14 +121,6 @@ const OnBoarding1 = ({ onBoardCurrent, ...props }) => {
                 style={styles.wrapper}
                 showsPagination={true}
                 paginationStyle={{
-                  // transform: [
-                  //   {
-                  //     translateY:
-                  //       GlobalVars.windowHeight < 725
-                  //         ? -GlobalVars.windowHeight / 1.19
-                  //         : -GlobalVars.windowHeight / 1.12,
-                  //   },
-                  // ],
                   position: "absolute",
                   bottom: GlobalVars.windowHeight < 725 ? "96%" : "92.5%",
                 }}
@@ -238,46 +230,16 @@ const OnBoarding1 = ({ onBoardCurrent, ...props }) => {
                   color={GlobalVars.firstColor}
                   onPress={() => setProcessOmit()}
                 />
-              </View>
-
-              {/* <TouchableOpacity
-                style={[
-                  styles.close,
-                  {
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                  },
-                ]}
-                onPress={() => props.setOnBoardCurrent(10)}
-              >
-                <AntDesign
-                  name="back"
-                  size={24}
-                  color={GlobalVars.firstColor}
-                  style={styles.iconBack}
-                />
-                <LabelTouchable
-                  sizeText={15}
-                  label="Volver"
-                  color={GlobalVars.firstColor}
-                  onPress={() => props.setOnBoardCurrent(10)}
-                  aditionalStyle={{ marginVertical: 0, paddingVertical: 0 }}
-                  customStyleTxt={{ marginVertical: 0, paddingVertical: 0 }}
-                />
-              </TouchableOpacity> */}
-              <TouchableOpacity
+              </View> 
+               <TouchableOpacity
                 style={styles2.container}
                 onPress={() => props.setOnBoardCurrent(10)}
               >
-                {/* <Entypo name="chevron-left" size={size} color={color} /> */}
 
-                {/* <View style={styles2.container}> */}
                   <Image
                     style={styles2.stretch}
                     source={require(".././../../../assets/back.png")}
                   />
-                {/* </View> */}
                 <LabelTouchable
                   customStyleTxt={{ left: "100%" }}
                   sizeText={15}
@@ -285,7 +247,7 @@ const OnBoarding1 = ({ onBoardCurrent, ...props }) => {
                   color={GlobalVars.firstColor}
                   onPress={() => props.setOnBoardCurrent(10)}
                 />
-              </TouchableOpacity>
+              </TouchableOpacity> 
             </View>
           </View>
         </View>
@@ -302,16 +264,13 @@ const styles2 = StyleSheet.create({
     height:50,
     display: "flex",
     flexDirection: 'row',
-    top:
-    GlobalVars.windowHeight < 725
-      ? -GlobalVars.windowHeight / 200
-      : GlobalVars.windowHeight / 30,
-      left:-10,
-      position: "absolute",
-      alignSelf: "",
-    // position: "absolute",
-    // top: GlobalVars.windowHeight < 725 ? "2.5%" : "4%",
-    // left: "8%",
+     top:
+     GlobalVars.windowHeight < 725
+       ? -GlobalVars.windowHeight / 200
+       : GlobalVars.windowHeight / 30,
+       left:-10,
+       position: "absolute",
+
   },
   stretch: {
     width: 35,

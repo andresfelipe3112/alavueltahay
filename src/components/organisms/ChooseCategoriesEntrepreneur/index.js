@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import { View, TouchableOpacity, ActivityIndicator } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  ActivityIndicator,
+  Dimensions,
+} from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
 
@@ -71,9 +76,7 @@ const PickerCategories = ({
               setShowErr(false);
             }, 1200);
           }
-
           break;
-
         case 2:
           break;
       }
@@ -108,12 +111,34 @@ const PickerCategories = ({
       )}
       {!loading && currentCat && (
         <>
-          <LabelTextComponent
-            style={{top:-10, alignSelf: "center", left: -5}}
-            text="Selecciona Rubro"
-            color={GlobalVars.blueOpaque}
-            size={20}
-          />
+          {Dimensions.get("screen").height < 550 ? (
+            <LabelTextComponent
+              style={{
+                top: Platform.OS === "ios" ? -10 : 7,
+                alignSelf: "center",
+                left: -5,
+              }}
+              text="Selecciona Rubro"
+              color={GlobalVars.blueOpaque}
+              size={20}
+            />
+          ) : (
+            <LabelTextComponent
+              style={{
+                top:
+                  Platform.OS === "ios"
+                    ? Dimensions.get("screen").height < 750
+                      ? 10
+                      : -10
+                    : -5,
+                alignSelf: "center",
+                left: -5,
+              }}
+              text="Selecciona Rubro"
+              color={GlobalVars.blueOpaque}
+              size={20}
+            />
+          )}
 
           {showErr && (
             <LabelTextComponent
@@ -154,7 +179,7 @@ const PickerCategories = ({
           )}
 
           <TouchableOpacity style={styles.closeIcon} onPress={onClose}>
-            <Cancel/>
+            <Cancel />
           </TouchableOpacity>
         </>
       )}

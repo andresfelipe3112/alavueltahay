@@ -82,7 +82,7 @@ const OptionTouchable = ({
         <LabelTextComponent text={text} color={colorText} size={sizeText} />
       )}
 
-      <View style={[styles2.container, { display: "absolute", left: 50 }]}>
+      <View style={[styles2.container, { position: "absolute", left: 50 }]}>
         <Image
           style={styles2.stretch}
           source={require("../../../../assets/chevron_right_white.png")}

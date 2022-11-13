@@ -292,23 +292,6 @@ const UserProfileScreen = ({ navigation }) => {
             deleteUser={() => console.log("hola")}
             cancelModal={() => setShowingInvite(!isShowingInvite)}
           />
-          {/* import ModalInvite from "../../components/templates/ModalInvite";    
-           const [data] = userInvitadData();
-           const [isShowingInvite, setShowingInvite] = useState(false);
-           <OptionTouchable
-              text="Términos y condiciones"
-              colorText={GlobalVars.white}
-              sizeText={16}
-              colorIcon={GlobalVars.white}
-              sizeIcon={20}
-              iconOption="clipboard"
-              onPress={() => setShowingInvite(!isShowingInvite)}
-            />   
-          <ModalInvite
-           openModal={isShowingInvite}
-           deleteUser={() => console.log('hola')}
-           cancelModal={() => setShowingInvite(!isShowingInvite)}
-      /> */}
         </ScrollView>
       </ImageBackground>
     </WrappingViews>

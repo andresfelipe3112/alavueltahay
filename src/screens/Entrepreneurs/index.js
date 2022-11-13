@@ -252,16 +252,21 @@ const EntrepreneursScreen = ({ navigation }) => {
           />
         </View>
    
-          {(!loading && dataFilter.length && (
+          {(
+          !loading && dataFilter.length 
+          && (
             <View style={{ marginLeft: 10 }}>
               <LabelTextComponent
-                style={{ alignSelf: "left", left: 10 }}
+                style={{
+                   textAlign: "left", left: 15 
+                  }}
                 text="Cerca de tí"
                 color={GlobalVars.textGrayColor}
                 size={15}
               />
-              <ScrollView horizontal>
-                <View style={{ display: "flex", flexDirection: "row", backgroundColor: GlobalVars.fondoPrincipal,zIndex:100 }}>
+              <ScrollView horizontal   showsVerticalScrollIndicator={false}
+  showsHorizontalScrollIndicator={false} >
+                <View style={{ display: "flex", flexDirection: "row", backgroundColor: GlobalVars.fondoPrincipal}}>
                   {(!loading && dataFilter.length && ResultsNearToSearch) || (
                     <></>
                   )}
@@ -273,7 +278,10 @@ const EntrepreneursScreen = ({ navigation }) => {
 
 
         <LabelTextComponent
-          style={{ alignSelf: "left", left: 23, marginBottom: -16 }}
+          style={{ 
+            textAlign: "left",
+             left: 23, marginBottom: -16 
+          }}
           text="Todos los resultados"
           color={GlobalVars.textGrayColor}
           size={15}

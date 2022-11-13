@@ -120,7 +120,7 @@ const PickerHoursShop = ({
     <View style={styles.view}>
       {!loading && (
         <LabelTextComponent
-        style={{top:-25, alignSelf: "center", left: -5}}
+        style={{top:Platform.OS === 'ios' ? -25 : -35, alignSelf: "center", left: -5}}
           text="Horario de atención"
           color={GlobalVars.blueOpaque}
           size={20}

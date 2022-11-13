@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { View, TouchableOpacity, ActivityIndicator } from "react-native";
+import { View, TouchableOpacity, ActivityIndicator, Dimensions } from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
 
@@ -124,12 +124,20 @@ const PickerAvatar = ({
       {loading && <ActivityIndicator color={GlobalVars.orange} size="large" />}
       {!loading && (
         <>
-         <LabelTextComponent
-            style={{top:-33, alignSelf: "center", left: -5}}
+         {Dimensions.get('screen').height < 550  ?<LabelTextComponent
+            style={{ top:Platform.OS === 'ios' ? -33 : 6, alignSelf: "center", left: -5}}
+            text="Selecciona tu logo"
+            color={GlobalVars.blueOpaque}
+            size={20}
+          /> :
+          <LabelTextComponent
+            style={{ top:Platform.OS === 'ios' ? Dimensions.get("screen").height < 750? 0  :-33  : -17, alignSelf: "center", left: -5}}
             text="Selecciona tu logo"
             color={GlobalVars.blueOpaque}
             size={20}
           />
+          
+          }
 
           {showErr && (
             <LabelTextComponent

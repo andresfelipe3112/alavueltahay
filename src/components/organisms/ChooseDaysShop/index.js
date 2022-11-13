@@ -111,7 +111,7 @@ const PickerDaysShop = ({
     <View style={[styles.view,{paddingTop:20}]}>
       {!loading && (
         <LabelTextComponent
-        style={{top:-5, alignSelf: "center", left:-10}}
+        style={{top:Platform.OS === 'ios' ? -5 : -17, alignSelf: "center", left:-10}}
           text="Días de atención"
           color={GlobalVars.blueOpaque}
           size={20}

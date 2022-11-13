@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { View, TouchableOpacity, ActivityIndicator, StyleSheet, Image } from "react-native";
+import { View, TouchableOpacity, ActivityIndicator, StyleSheet, Image, Dimensions } from "react-native";
 
 import { Entypo, FontAwesome5, Feather } from "@expo/vector-icons";
 
@@ -404,12 +404,20 @@ const PickerChannelsShop = ({
   return (
     <View style={styles.view}>
       {!loading && (
-        <LabelTextComponent
-          style={{top:-10}}
+        <>
+       { Dimensions.get("screen").height < 550 ? <LabelTextComponent
+          style={{top:Platform.OS === 'ios' ? 10 : 5}}
           text="Edita tus canales"
           color={GlobalVars.blueOpaque}
           size={20}
-        />
+          /> :
+        <LabelTextComponent
+          style={{top:Platform.OS === 'ios' ? Dimensions.get("screen").height < 750? 10 : -10 : -5}}
+          text="Edita tus canales"
+          color={GlobalVars.blueOpaque}
+          size={20}
+          />}
+        </>
       )}
       {loading && <ActivityIndicator color={GlobalVars.orange} size="large" />}
 

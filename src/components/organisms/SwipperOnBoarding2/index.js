@@ -688,7 +688,7 @@ const OnBoarding2 = ({ onBoardCurrent, ...props }) => {
               )} */}
 
               <TouchableOpacity
-                style={styles2.container}
+                style={[styles2.container, { height:50 }]}
                 onPress={() => setPrevProcess()}
               >
                 {/* <Entypo name="chevron-left" size={size} color={color} /> */}

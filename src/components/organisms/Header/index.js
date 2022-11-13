@@ -113,9 +113,9 @@ const Header = ({
                 size={25}
                 onPress={() => null}
               />
-            )}
+            )} */}
 
-            {avatar && !image && (
+            {/* {avatar && !image && (
               <TouchableOpacity onPress={() => null}>
                 <ImageUriComponent
                   width={25}
@@ -127,23 +127,9 @@ const Header = ({
                   borderBottomRadius={150}
                 />
               </TouchableOpacity>
-            )}
+            )} */}
 
-            {!avatar && image && (
-              <TouchableOpacity onPress={() => null}>
-                <ImageUriComponent
-                  width={25}
-                  height={25}
-                  radius={150}
-                  mode="cover"
-                  img={{ uri: image?.uri }}
-                  borderTopRadius={150}
-                  borderBottomRadius={150}
-                />
-              </TouchableOpacity>
-            )}
-
-            {avatar && image && (
+            {/* {!avatar && image && (
               <TouchableOpacity onPress={() => null}>
                 <ImageUriComponent
                   width={25}
@@ -156,6 +142,20 @@ const Header = ({
                 />
               </TouchableOpacity>
             )} */}
+{/* 
+            {avatar && image && (
+              <TouchableOpacity onPress={() => null}>
+                <ImageUriComponent
+                  width={25}
+                  height={25}
+                  radius={150}
+                  mode="cover"
+                  img={{ uri: image?.uri }}
+                  borderTopRadius={150}
+                  borderBottomRadius={150}
+                />
+              </TouchableOpacity>
+            )}  */}
           </View>
 
           <TitleComponent

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Platform, StyleSheet, View } from "react-native";
 
 export const Cancel = () => {
 return(
@@ -17,7 +17,7 @@ const styles2 = StyleSheet.create({
     container: {
       width: 40,
       height: 40,
-      top:-10
+      top: Platform.OS === 'ios' ? -10 : -17
     },
     stretch: {
       width: 40,

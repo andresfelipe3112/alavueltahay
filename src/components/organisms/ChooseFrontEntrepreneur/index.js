@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import { View, TouchableOpacity, ActivityIndicator } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  ActivityIndicator,
+  Dimensions,
+} from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
 
@@ -122,16 +127,39 @@ const PickerFront = ({
     })) || <></>;
 
   return (
-    <View style={[styles.view,{minHeight:'55%'}]}>
+    <View style={[styles.view, { minHeight: "55%" }]}>
       {loading && <ActivityIndicator color={GlobalVars.orange} size="large" />}
       {!loading && (
         <>
-          <LabelTextComponent
-            style={{top:-33, alignSelf: "center", left: -5}}
-            text="Selecciona tu portada"
-            color={GlobalVars.blueOpaque}
-            size={20}
-          />
+          {Dimensions.get("screen").height < 550 ? (
+            <LabelTextComponent
+              style={{
+                top: Platform.OS === "ios" ? -33 : 5,
+                marginRight:15,
+                alignSelf: "center",
+                left: -5,
+              }}
+              text="Selecciona tu portada"
+              color={GlobalVars.blueOpaque}
+              size={20}
+            />
+          ) : (
+            <LabelTextComponent
+              style={{
+                top:
+                  Platform.OS === "ios"
+                    ? Dimensions.get("screen").height < 750
+                      ? -10
+                      : -33
+                    : -22,
+                alignSelf: "center",
+                left: -5,
+              }}
+              text="Selecciona tu portada"
+              color={GlobalVars.blueOpaque}
+              size={20}
+            />
+          )}
 
           {showErr && (
             <LabelTextComponent
@@ -182,7 +210,7 @@ const PickerFront = ({
           )}
 
           <TouchableOpacity style={styles.closeIcon} onPress={onClose}>
-          <Cancel/>
+            <Cancel />
           </TouchableOpacity>
         </>
       )}
