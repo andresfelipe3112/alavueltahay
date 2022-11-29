@@ -75,7 +75,7 @@ const Styles = StyleSheet.create({
         : GlobalVars.windowHeight > 780 && GlobalVars.windowHeight < 850
         ? "75%"
         : GlobalVars.windowHeight < 900
-        ? "85%"
+        ? "75%"
         : "80%",
     backgroundColor: GlobalVars.firstColor,
   },
@@ -100,7 +100,7 @@ const Styles = StyleSheet.create({
         ? GlobalVars.windowHeight / 1.19
         : GlobalVars.windowHeight >= 725 && GlobalVars.windowHeight < 780
         ? GlobalVars.windowHeight / 1.19
-        : GlobalVars.windowHeight > 780 && GlobalVars.windowHeight < 850
+        : GlobalVars.windowHeight > 780 && GlobalVars.windowHeight - 100 < 850
         ? GlobalVars.windowHeight / 1.195
         : GlobalVars.windowHeight < 900
         ? GlobalVars.windowHeight / 1.092

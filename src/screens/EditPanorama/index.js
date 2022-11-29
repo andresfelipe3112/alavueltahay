@@ -824,6 +824,7 @@ const EditPanoramaScreen = ({ navigation, route }) => {
                     color={GlobalVars.white}
                     size={15}
                   />
+                  
                   <View style={{ width: "100%", paddingBottom: 5 }} />
                   {optionsSocial}
                 </View>

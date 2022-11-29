@@ -30,6 +30,7 @@ const Styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "flex-start",
+    borderRadius: 35,
   },
 
   headerContent: {
@@ -41,7 +42,7 @@ const Styles = StyleSheet.create({
 
   borderBurbble: {
     width: "50%",
-    paddingVertical: 10,
+    paddingVertical: 15,
     alignItems: "center",
     justifyContent: "center",
     borderTopLeftRadius: 35,
@@ -58,7 +59,7 @@ const Styles = StyleSheet.create({
   optionMain: {
     width: 120,
     marginRight: 15,
-    marginBottom: 5,
+    marginBottom: -15,
     paddingVertical: 5,
     paddingHorizontal: 10,
     alignItems: "center",
@@ -67,7 +68,10 @@ const Styles = StyleSheet.create({
     borderRadius: 25,
   },
 
-  stylesCarousel: {},
+  stylesCarousel: {
+    marginRight:0,
+    marginBottom:18
+  },
 
   contentCarousel: {
     paddingTop: 15,

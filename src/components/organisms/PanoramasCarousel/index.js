@@ -91,12 +91,12 @@ export default function PanoramasCarousel({
             <TitleComponent
               title={`Panoramas`}
               color={GlobalVars.white}
-              size={15}
+              size={18}
             />
             <TitleComponent
               title={`en tu barrio`}
               color={GlobalVars.white}
-              size={15}
+              size={18}
             />
           </View>
         </View>

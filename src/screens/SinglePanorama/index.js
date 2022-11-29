@@ -362,7 +362,6 @@ const SinglePanoramaScreen = ({ navigation, route }) => {
                 fontWeight: "bold",
               }}
             />
-
             <View
               style={[
                 styles.collection,
@@ -471,7 +470,7 @@ const SinglePanoramaScreen = ({ navigation, route }) => {
             >
               <Feather
                 name="phone-call"
-                size={24}
+                size={22}
                 color={GlobalVars.blueOpaque}
               />
               <View style={{ width: 20 }} />

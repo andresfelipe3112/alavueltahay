@@ -244,9 +244,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                         contentContainerStyle={[
                           styles.contentContainer,
                           {
-                            paddingBottom: isKeyBoardOpen
-                              ? GlobalVars.windowHeight / 3
-                              : 25,
+                            paddingBottom: 350
                           },
                         ]}
                       >
@@ -256,7 +254,6 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                           size={20}
                           customStyleBtn={{ textAlign: "left" }}
                         />
-
                         <LabelTextComponent
                           text="Nombre de tu negocio"
                           color={GlobalVars.white}
@@ -267,7 +264,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                           }}
                         />
                         <InputEntry
-                          label="Ej.: Restaurante Familiar"
+                          label="Ej.:Restaurante Familiar"
                           noMarginH
                           textvariable={props.shopName}
                           setValue={(val) => props.setShopName(val)}
@@ -288,7 +285,6 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                           setValue={(val) => props.setDescriptionShop(val)}
                           noStylesSpaces
                         />
-
                         <View
                           style={{
                             width: "100%",
@@ -341,48 +337,6 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                             >
                               {optionsCategories}
                             </Select>
-                          {/* ) 
-                          : (
-                            <></>
-                          )} */}
-
-                          {/* {Platform.OS === "ios" && categories.length ? (
-                            <RNPickerSelect
-                            placeholder={{value: "Selecciona rubro", label: "Selecciona rubro",}}
-                              style={{
-                                placeholder: {
-                                  color: GlobalVars.firstColor,
-                                  backgroundColor: GlobalVars.white,
-                                  padding: 10,
-                                  borderRadius: 5,
-                                },
-                                inputIOS: {
-                                  color: GlobalVars.firstColor,
-                                  backgroundColor: GlobalVars.white,
-                                  padding: 10,
-                                  borderRadius: 5,
-                                },
-                                inputAndroid: {
-                                  color: GlobalVars.firstColor,
-                                  backgroundColor: GlobalVars.white,
-                                  padding: 10,
-                                  borderRadius: 5,
-                                },
-                              }}
-                              onValueChange={(itemValue) => {
-                                const CatTemp = categories.filter(
-                                  (item) => item?.id === itemValue
-                                );
-                                props.setShopCat(itemValue);
-                                props.setShopCatName(
-                                  CatTemp[0]?.attributes?.category
-                                );
-                              }}
-                              items={data}
-                            />
-                          ) : (
-                            <></>
-                          )} */}
                         </View>
                       </ScrollView>
                     </View>

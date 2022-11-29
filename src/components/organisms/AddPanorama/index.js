@@ -9,6 +9,7 @@ import {
   Platform,
   Image,
   StyleSheet,
+  Dimensions,
 } from "react-native";
 
 import { Select } from "native-base";
@@ -681,12 +682,15 @@ const PickerAddPanorama = ({
           <View
             style={{
               width: "100%",
+              top:Dimensions.get('window').height / 5.5 ,
+              position: "absolute",
+              display:'flex',
               height: GlobalVars.windowHeight / 2,
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <ActivityIndicator color={GlobalVars.orange} size="large" />
+            <ActivityIndicator color={GlobalVars.orange} size="large"   />
           </View>
         )}
 

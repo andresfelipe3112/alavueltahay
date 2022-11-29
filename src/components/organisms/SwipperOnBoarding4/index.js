@@ -975,6 +975,7 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
                             {
                               display: props.whatsapp ? "flex" : "none",
                               justifyContent: "flex-start",
+                              paddingRight:50
                             },
                           ]}
                         >
@@ -1001,6 +1002,7 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
                             {
                               display: props.instagram ? "flex" : "none",
                               justifyContent: "flex-start",
+                              paddingRight:50
                             },
                           ]}
                         >
@@ -1027,6 +1029,7 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
                             {
                               display: props.fb ? "flex" : "none",
                               justifyContent: "flex-start",
+                              paddingRight:50
                             },
                           ]}
                         >
@@ -1051,6 +1054,7 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
                             {
                               display: props.tiktok ? "flex" : "none",
                               justifyContent: "flex-start",
+                              paddingRight:50
                             },
                           ]}
                         >
@@ -1099,6 +1103,7 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
                             {
                               display: props.mailTo ? "flex" : "none",
                               justifyContent: "flex-start",
+                              paddingRight:50
                             },
                           ]}
                         >
@@ -1109,7 +1114,7 @@ const OnBoarding4 = ({ onBoardCurrent, ...props }) => {
                           />
                           <View style={{ width: 20 }} />
                           <LabelTouchable
-                            sizeText={15}
+                            sizeText={13}
                             label={props.mailTo}
                             color={GlobalVars.white}
                             onPress={() => handlePress(props.mailTo, "mails")}

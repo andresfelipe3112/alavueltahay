@@ -168,10 +168,10 @@ const InitialScreen = ({ navigation }) => {
   };
 
   const checkOnBoard = async () => {
-    const res = await Storage.getItem("_ON_BOARD");
-    if (!res) {
-      setOnBoardCurrent(10);
-    }
+    // const res = await Storage.getItem("_ON_BOARD");
+    // if (!res) {
+    //   setOnBoardCurrent(10);
+    // }
   };
 
   const setGPSLocation = async () => {

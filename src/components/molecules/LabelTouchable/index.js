@@ -24,7 +24,7 @@ const LabelTouchable = ({
       style={[styles.btn, aditionalStyle || null]}
     >
       <LabelTextComponent
-        text={label}
+        text={label.length > 24 ? label.split('').slice(0,25).join('') + ' ...' : label}
         color={color}
         size={sizeText}
         customStyleBtn={customStyleTxt}
