@@ -3,7 +3,7 @@
     "name": "A la vuelta",
     "slug": "a-la-vuelta-hay",
     "owner": "andresfelipexonmek",
-    "version": "1.0.42",
+    "version": "1.0.44",
     "description": "a-la-vuelta-hay",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,7 +20,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "1.0.42",
+      "buildNumber": "1.0.44",
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "Esta app usa la camara para colocar imagenes de perfil",
@@ -45,7 +45,7 @@
       }
     },
     "android": {
-      "versionCode": 100042,
+      "versionCode": 100044,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

@@ -12,7 +12,7 @@ import RNPickerSelect from "react-native-picker-select";
 
 import CheckboxExpo from "expo-checkbox";
 
-import { Checkbox, Select, Modal } from "native-base";
+import { Checkbox, Select, Modal, Radio } from "native-base";
 
 import { AntDesign } from "@expo/vector-icons";
 
@@ -42,12 +42,15 @@ import { StyleSheet } from "react-native";
 const styles = Styles;
 
 const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
+
+  
   const isKeyBoardOpen = useKeyboard();
 
   const [visible, onShow] = React.useState(false);
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const [categories, setCategories] = React.useState([]);
+ 
 
   const [textAlert, setTextAlert] = React.useState("");
   const [isShowingAlert, setShowhingAlert] = React.useState(false);
@@ -62,7 +65,6 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
       array.push(obj);
     });
     setData(array);
-    console.log(array);
   };
 
   React.useEffect(() => {
@@ -215,7 +217,12 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <View style={[styles.container, { marginTop:Dimensions.get("screen").height < 550 ? 20 :13 } ]}>
+            <View
+              style={[
+                styles.container,
+                { marginTop: Dimensions.get("screen").height < 550 ? 20 : 13 },
+              ]}
+            >
               <Swiper
                 ref={swiper}
                 key={5}
@@ -244,7 +251,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                         contentContainerStyle={[
                           styles.contentContainer,
                           {
-                            paddingBottom: 350
+                            paddingBottom: 350,
                           },
                         ]}
                       >
@@ -285,12 +292,18 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                           setValue={(val) => props.setDescriptionShop(val)}
                           noStylesSpaces
                         />
+                          <LabelTextComponent
+                        text="Selecciona tu rubro :"
+                        color={GlobalVars.white}
+                        size={15}
+                        customStyleBtn={{ textAlign: "left", marginTop:30 }}
+                      />
                         <View
                           style={{
                             width: "100%",
-                            paddingTop: 20,
-                            alignItems: "center",
-                            justifyContent: "center",
+                            paddingTop: 10,
+                            alignItems: 'flex-start',
+                            justifyContent: 'flex-start',
                           }}
                         >
                           {!categories.length && (
@@ -300,43 +313,38 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                               style={{ alignSelf: "center" }}
                             />
                           )}
-                          {/* {Platform.OS !== "ios" && categories.length ? ( */}
-                            <Select
-                              selectedValue={props.shopCat}
-                              accessibilityLabel="Selecciona rubro"
-                              placeholder="Selecciona rubro"
-                              fontFamily={GlobalVars.fontFamily}
-                              width={GlobalVars.windowWidth / 1.35}
-                              color={GlobalVars.firstColor}
-                              borderColor={GlobalVars.white}
-                              backgroundColor={GlobalVars.white}
-                              marginTop={1}
-                              placeholderTextColor={GlobalVars.firstColor}
-                              _selectedItem={{
-                                bg: "orange.100",
-                                endIcon: <></>,
-                                borderColor: GlobalVars.firstColor,
-                              }}
-                              _hover={{
-                                backgroundColor: GlobalVars.thirdOrange,
-                                color: GlobalVars.thirdOrange,
-                              }}
-                              customDropdownIconProps={{
-                                color: GlobalVars.thirdOrange,
-                                marginRight: 2,
-                              }}
-                              onValueChange={(itemValue) => {
-                                props.setShopCat(itemValue);
-                                const CatTemp = categories.filter(
-                                  (item) => item?.id === itemValue
-                                );
-                                props.setShopCatName(
-                                  CatTemp[0].attributes?.category
-                                );
-                              }}
-                            >
-                              {optionsCategories}
-                            </Select>
+
+                          <Radio.Group
+                          name="setShopCat"
+                          onChange={(nextValue:any) => {
+                            categories.forEach(
+                              (item) => item.attributes?.category === nextValue && props.setShopCat(item.id)
+                              );
+                             props.setShopCat ? props.setShopCatName(nextValue) : null;
+                          }}
+                          >
+                            {categories.map((value, i) => {
+                              return (
+                                <>
+                                  <Radio
+                                    value={value.attributes.category}
+                                    my={1}
+                                    bgColor={GlobalVars.white}
+                                    borderColor={GlobalVars.white}
+                                    colorScheme="orange"
+                                    // _checked={{ borderColor: GlobalVars.white }}
+                                    // _pressed={{ tintColor: GlobalVars.white }}
+                                    _text={{ color: GlobalVars.white }}
+                                    _hover={{ borderColor: GlobalVars.orange }}
+                                  >
+                                    {value.attributes.category}
+                                  </Radio>
+                                  <View style={styles.mb20} />
+                                </>
+                              );
+                            })}
+                          </Radio.Group>
+
                         </View>
                       </ScrollView>
                     </View>
@@ -399,7 +407,7 @@ const OnBoarding3 = ({ onBoardCurrent, ...props }) => {
                           fetchDetails={true}
                           minLength={3}
                           onPress={(data, details = null) => {
-                            // console.log(data, details);
+                             console.log(data, details);
                             props.setNameAddres
                               ? props.setNameAddres(data?.description || "")
                               : null;
