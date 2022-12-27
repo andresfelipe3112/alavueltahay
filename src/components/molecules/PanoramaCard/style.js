@@ -9,7 +9,8 @@ const Styles = StyleSheet.create({
     justifyContent: "flex-start",
     backgroundColor: "transparent",
     width: GlobalVars.windowWidth / 2,
-    height: GlobalVars.windowWidth / 2,
+    maxHeight: GlobalVars.windowWidth / 1.50,
+    paddingBottom:30,
     backgroundColor: GlobalVars.white,
     borderRadius: 25,
     shadowColor: "#000",
@@ -32,6 +33,7 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingBottom:10
   },
 
   containerCardIsAll: {
@@ -41,14 +43,15 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent",
-    height: GlobalVars.windowWidth / 3,
+    height: GlobalVars.windowWidth / 2.7,
   },
 
   containerTouchableInAll: {
-    width: "100%",
+    width: "95%",
     borderRadius: 25,
     backgroundColor: GlobalVars.white,
-    height: GlobalVars.windowWidth / 3,
+    height: GlobalVars.windowWidth / 2.7,
+
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

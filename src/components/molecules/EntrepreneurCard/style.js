@@ -9,7 +9,8 @@ const Styles = StyleSheet.create({
     justifyContent: "flex-start",
     backgroundColor: "transparent",
     width: GlobalVars.windowWidth / 2,
-    height: GlobalVars.windowWidth / 2,
+    paddingBottom:30,
+    maxHeight: GlobalVars.windowWidth / 1.50,
     backgroundColor: GlobalVars.whiteLight,
     borderRadius: 25,
     shadowColor: "#000",
@@ -70,7 +71,6 @@ const Styles = StyleSheet.create({
     paddingHorizontal: 10,
     justifyContent: "center",
     backgroundColor: "transparent",
-    height: GlobalVars.windowWidth / 2,
   },
 
   containerTouchableIsLarge: {

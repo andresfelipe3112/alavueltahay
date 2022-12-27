@@ -10,6 +10,7 @@ import ImageUriComponent from "../../atoms/ImageUriComponent";
 
 /** Import Styles for this Screen */
 import Styles from "./style";
+import truncateText from "../../../helpers/truncateText";
 
 const styles = Styles;
 
@@ -76,9 +77,9 @@ export default function EntrepreneurCard({ item = null, ...props }) {
             />
           </View>
           <View style={{ width: "100%", height: 5 }} />
-          <View style={styles.aditionalInfo}>
+          <View style={[styles.aditionalInfo, {}]}>
             <TitleComponent
-              title={item?.attributes?.entrepreneurship}
+               title={item?.attributes?.entrepreneurship}
               color={GlobalVars.textGrayColor}
               size={13}
             />
@@ -159,7 +160,7 @@ export default function EntrepreneurCard({ item = null, ...props }) {
 
   if (props.isLarge) {
     return (
-      <View style={styles.containerCardIsLarge}>
+      <View style={[styles.containerCardIsLarge, { maxHeight:false ?  GlobalVars.windowWidth / 1.70 :GlobalVars.windowWidth / 2 }]}>
         <TouchableOpacity
           style={styles.containerTouchableIsLarge}
           onPress={() => returnAction()}
@@ -216,7 +217,7 @@ export default function EntrepreneurCard({ item = null, ...props }) {
             )}
           <View style={styles.contentCardIsLarge}>
             <TitleComponent
-              title={item?.attributes?.entrepreneurship}
+              title={truncateText(item?.attributes?.entrepreneurship, 30)}
               color={GlobalVars.textGrayColor}
               size={14}
             />

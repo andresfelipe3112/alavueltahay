@@ -95,6 +95,7 @@ export default function EntrepreneursGrid({
   let cards = resultfilter.map((item, i) => {
     if (selectedCategory) {
       return (
+        
         <EntrepreneurCard
           key={`entrepreneur_card__${i}`}
           item={item}
