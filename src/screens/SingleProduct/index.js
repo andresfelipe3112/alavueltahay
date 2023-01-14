@@ -43,10 +43,10 @@ const SingleProductScreen = ({ navigation, route }) => {
   const [loading, setLoading] = useState(false);
   const [textAlert, setTextAlert] = useState("");
   const [sendedMsg, setSendedMsg] = useState(false);
-    const [isShowingInvite, setShowingInvite] = useState(false);
+  const [isShowingInvite, setShowingInvite] = useState(false);
   const [qty, setQty] = useState(product?.attributes?.quantity || 1);
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -195,11 +195,11 @@ const SingleProductScreen = ({ navigation, route }) => {
               ]}
             >
               <View style={styles2.containerFocus}>
-              <Image
-                style={styles2.stretchFocus}
-                source={require("../../../assets/check.png")}
+                <Image
+                  style={styles2.stretchFocus}
+                  source={require("../../../assets/check.png")}
                 />
-            </View>
+              </View>
               <LabelTextComponent
                 text={`${user?.names}, Se envió el mensaje por Whatsapp, ${product?.attributes?.entrepreneurship?.data?.attributes?.entrepreneurship} también recibió una notificación.`}
                 color={GlobalVars.textGrayColor}
@@ -212,38 +212,38 @@ const SingleProductScreen = ({ navigation, route }) => {
           )}
 
           <View
-            style={[styles.collection, styles.orderRows, styles.markBottom]}
+            style={[styles.collection, styles.orderRows, styles.markBottom, { width: '100%' }]}
           >
+            <View
+            style={{ width: '75%',}}
+            >
+
             <LabelTextComponent
               text={
                 product?.attributes?.entrepreneurship?.data?.attributes
-                  ?.entrepreneurship || ""
+                ?.entrepreneurship || ""
               }
               color={GlobalVars.textGrayColor}
               size={18}
-            />
+              />
+              </View>
 
             <View style={styles.deliver}>
-            <View style={styles2.container}>
-            <Image
-                   style={styles2.stretch}
-                   source={require("../../../assets/delivery.png")}
+              <View style={{ width: 80, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <Image
+                  style={[styles2.stretch, { width: 50, height: 50, marginBottom: -10 }]}
+                  source={require("../../../assets/delivery.png")}
+                />
+                <LabelTextComponent
+                  text={
+                    product?.attributes?.delivery
+                      ? "Delivery disponible"
+                      : "Delivery no disponible"
+                  }
+                  color={GlobalVars.textGrayColor}
+                  size={10}
                 />
               </View>
-              {/* <Fontisto
-                name="opencart"
-                size={20}
-                color={GlobalVars.textGrayColor}
-              /> */}
-              <LabelTextComponent
-                text={
-                  product?.attributes?.delivery
-                    ? "Delivery disponible"
-                    : "Delivery no disponible"
-                }
-                color={GlobalVars.textGrayColor}
-                size={12}
-              />
             </View>
           </View>
 
@@ -340,7 +340,7 @@ const SingleProductScreen = ({ navigation, route }) => {
                 text="ENVIAR"
                 color={GlobalVars.orange}
                 textColor={GlobalVars.whiteLight}
-                Action={() =>data ? handlePress() : setShowingInvite(!isShowingInvite) }
+                Action={() => data ? handlePress() : setShowingInvite(!isShowingInvite)}
               />
             )}
 
@@ -363,12 +363,12 @@ const SingleProductScreen = ({ navigation, route }) => {
           onHelp={() => setShowhingAlert()}
         />
       )}
-        <ModalInvite
-           openModal={isShowingInvite}
-           text='Para realizar esta solicitud requieres una cuenta de usuario, ¡Regístrate, es muy sencillo!'
-           deleteUser={() => console.log('hola')}
-           cancelModal={() => setShowingInvite(!isShowingInvite)}
-        />
+      <ModalInvite
+        openModal={isShowingInvite}
+        text='Para realizar esta solicitud requieres una cuenta de usuario, ¡Regístrate, es muy sencillo!'
+        deleteUser={() => console.log('hola')}
+        cancelModal={() => setShowingInvite(!isShowingInvite)}
+      />
     </WrappingViews>
   );
 };
@@ -380,7 +380,7 @@ const styles2 = StyleSheet.create({
   container: {
     width: 50,
     height: 50,
-    right:13
+    right: 13
   },
   stretch: {
     width: 65,

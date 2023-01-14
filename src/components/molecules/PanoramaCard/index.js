@@ -38,15 +38,15 @@ export default function PanoramaCard({ item = null, ...props }) {
               uri: item?.attributes?.image?.data?.attributes?.uri,
             }}
             width="100%"
-            height={GlobalVars.windowWidth / 5}
+            height={GlobalVars.windowWidth / 4}
             borderTopRadius={25}
           />
           <View style={styles.contentCardIsAll}>
             <TitleComponent
-              title={truncateText(item?.attributes?.panorama, 35)}
+              title={truncateText(item?.attributes?.panorama, 26)}
               color={GlobalVars.textGrayColor}
-              size={14}
-              customStyles={{ textAlign: "left" }}
+              size={12}
+              customStyles={{ textAlign: "center" }}
             />
           </View>
         </TouchableOpacity>

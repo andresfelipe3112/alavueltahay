@@ -35,6 +35,7 @@ import WrappingViews from "../../components/templates/WrappingViews";
 
 /** Styles */
 import Styles from "./style";
+import truncateText from "../../helpers/truncateText";
 
 const styles = Styles;
 const SingleEntrepreneursScreen = ({ navigation, route }) => {
@@ -224,7 +225,7 @@ const SingleEntrepreneursScreen = ({ navigation, route }) => {
         navigation={navigation}
         user={user}
         _jwt={_jwt}
-        title={shop?.attributes?.entrepreneurship || ""}
+        title={ truncateText(shop?.attributes?.entrepreneurship || "",30)}
         ToRandomDispatch={ToRandomDispatch}
         isJustTitle
       />

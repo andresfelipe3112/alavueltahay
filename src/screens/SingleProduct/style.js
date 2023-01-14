@@ -49,7 +49,7 @@ const Styles = StyleSheet.create({
   },
 
   deliver: {
-    width: "50%",
+    width: "25%",
     alignItems: "center",
     justifyContent: "center",
   },

@@ -50,7 +50,8 @@ const Styles = StyleSheet.create({
     width: "95%",
     borderRadius: 25,
     backgroundColor: GlobalVars.white,
-    height: GlobalVars.windowWidth / 2.7,
+    // height: GlobalVars.windowWidth / 2.6,
+    height: GlobalVars.windowWidth / 2.55,
 
     shadowColor: "#000",
     shadowOffset: {
@@ -66,10 +67,11 @@ const Styles = StyleSheet.create({
   },
 
   contentCardIsAll: {
-    width: "100%",
-    paddingVertical: 5,
+    width: "95%",
+    paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
+    alignSelf:'center'
   },
 
   aditionalInfo: {
