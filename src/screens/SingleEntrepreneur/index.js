@@ -36,9 +36,11 @@ import WrappingViews from "../../components/templates/WrappingViews";
 /** Styles */
 import Styles from "./style";
 import truncateText from "../../helpers/truncateText";
+import { COUNTER } from "../../mock/userInfo";
 
 const styles = Styles;
 const SingleEntrepreneursScreen = ({ navigation, route }) => {
+
   const { _jwt } = useContext(StoreContext.SecurityContext);
   const { user } = useContext(StoreContext.UserContext);
   const { entrepreneur } = useContext(StoreContext.EntrepreneurContext);
@@ -60,7 +62,19 @@ const SingleEntrepreneursScreen = ({ navigation, route }) => {
   const [mailTo, setMailTo] = useState("");
   const [calls, setCalls] = useState("");
 
-  useEffect(() => {}, []);
+  const counterVisited = async () => {
+      try {
+        const res = await  COUNTER(_jwt, (route.params?.shop?.id));
+        console.log('resp', res);
+        
+      } catch (error) {
+        console.log('error', error);
+      }
+  }
+
+  useEffect(() => {
+    counterVisited()
+  }, []);
 
   useEffect(() => {
     getDaysWorkStr();

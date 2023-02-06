@@ -12,6 +12,7 @@ import AggreeShopScreen from "../../screens/AddEntrepreneur";
 import MainEntrepreneur from "../../screens/MainEntrepreneur";
 import EditEntrepreneur from "../../screens/EditEntrepreneur";
 import EntrepreneurProducts from "../../screens/EntrepreneurProducts";
+import Estadisticas from "../../screens/Estadisticas";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ const ProfileStack = () => {
       <Stack.Screen name="MainEntrepreneur" component={MainEntrepreneur} />
       <Stack.Screen name="EditEntrepreneur" component={EditEntrepreneur} />
       <Stack.Screen name="AggreeEntrepreneur" component={AggreeShopScreen} />
+      <Stack.Screen name="Estadisticas" component={Estadisticas} />
     </Stack.Navigator>
   );
 };

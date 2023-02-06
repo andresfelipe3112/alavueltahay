@@ -29,6 +29,7 @@ const OptionTouchable = ({
     ['user_white']:require(`../../../../assets/user_white.png`),
     ['negocio-2']:require(`../../../../assets/negocio-2.png`),
     ['negocio-1']:require(`../../../../assets/negocio-1.png`),
+    ['Estadísticas']:require(`../../../../assets/estadisticas.png`),
     negocio:require(`../../../../assets/negocio.png`),
   }
   let objN ={ 
@@ -111,8 +112,8 @@ const styles2 = StyleSheet.create({
     height: 42,
   },
   stretchFocus: {
-    width: 35,
-    height: 35,
+    width: 30,
+    height: 30,
     top:4
   },
 });

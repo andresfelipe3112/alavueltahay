@@ -180,6 +180,17 @@ const UserProfileScreen = ({ navigation }) => {
 
             {data && (
               <OptionTouchable
+                text="Estadísticas"
+                colorText={GlobalVars.white}
+                sizeText={16}
+                colorIcon={GlobalVars.white}
+                sizeIcon={18}
+                iconOption="Estadísticas"
+                onPress={() => navigation.navigate("Estadisticas")}
+              />
+            )}
+            {data && (
+              <OptionTouchable
                 text="Mi perfil"
                 colorText={GlobalVars.white}
                 sizeText={16}
