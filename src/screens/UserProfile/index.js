@@ -178,7 +178,7 @@ const UserProfileScreen = ({ navigation }) => {
               <View style={styles.subray} />
             </View>
 
-            {data && (
+            {/* {data && (
               <OptionTouchable
                 text="Estadísticas"
                 colorText={GlobalVars.white}
@@ -188,7 +188,7 @@ const UserProfileScreen = ({ navigation }) => {
                 iconOption="Estadísticas"
                 onPress={() => navigation.navigate("Estadisticas")}
               />
-            )}
+            )} */}
             {data && (
               <OptionTouchable
                 text="Mi perfil"
